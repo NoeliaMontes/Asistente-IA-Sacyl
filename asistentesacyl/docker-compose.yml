@@ -1,0 +1,65 @@
+services:
+
+  database:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: upsa
+      POSTGRES_USER: system
+      POSTGRES_PASSWORD: manager
+      PGDATA: /var/lib/postgresql/18/docker
+    volumes:
+      - vol_database:/var/lib/postgresql
+    ports:
+      - 5555:54532
+    command: ["-c","max_prepared_transactions=100"]
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U system -d upsa"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+
+  ws-medicamentos:
+    build:
+      context: ./ws-medicamentos
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_HOST: database
+      DATABASE_PORT: 5432
+      DATABASE_NAME: upsa
+      DATABASE_USERNAME: system
+      DATABASE_PASSWORD: manager
+
+  ws-pacientes:
+    build:
+      context: ./ws-pacientes
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_HOST: database
+      DATABASE_PORT: 5432
+      DATABASE_NAME: upsa
+      DATABASE_USERNAME: system
+      DATABASE_PASSWORD: manager
+
+
+  ws-medicos:
+    build:
+      context: ./ws-medicos
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_HOST: database
+      DATABASE_PORT: 5432
+      DATABASE_NAME: upsa
+      DATABASE_USERNAME: system
+      DATABASE_PASSWORD: manager
+
+  ngnix:
+    image: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+
+  nginx
+volumes:
+  vol_database: {}
