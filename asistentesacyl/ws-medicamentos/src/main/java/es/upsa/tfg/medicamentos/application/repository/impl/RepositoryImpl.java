@@ -11,6 +11,7 @@ import java.util.Optional;
 @ApplicationScoped
 public class RepositoryImpl implements Repository
 {
+    //Injectamos el Dao
     @Inject
     Dao dao;
 
