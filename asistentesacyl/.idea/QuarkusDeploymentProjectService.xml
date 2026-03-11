@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="QuarkusDeploymentProjectService">
+    <option name="modules">
+      <map>
+        <entry key="pacientes">
+          <value>
+            <ModuleState>
+              <option name="hash" value="1350747654" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-medicamentos">
+          <value>
+            <ModuleState>
+              <option name="hash" value="1350747654" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-medicos">
+          <value>
+            <ModuleState>
+              <option name="hash" value="1350747654" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-pacientes">
+          <value>
+            <ModuleState>
+              <option name="hash" value="1350747654" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
