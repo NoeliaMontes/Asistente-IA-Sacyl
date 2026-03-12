@@ -1,11 +1,11 @@
-package es.upsa.tfg.medicos.adapters.output.persistence;
+package es.upsa.tfg.medicos.application.repository;
 
 import es.upsa.tfg.domain.entities.Medicamento;
 import es.upsa.tfg.domain.entities.Medico;
 
 import java.util.Optional;
 
-public interface Dao
+public interface Repository
 {
     Optional<Medico> getById(String id);
 }
