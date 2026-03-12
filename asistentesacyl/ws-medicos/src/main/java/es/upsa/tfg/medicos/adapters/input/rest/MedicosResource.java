@@ -1,6 +1,7 @@
 package es.upsa.tfg.medicos.adapters.input.rest;
 
 import es.upsa.tfg.domain.entities.Medico;
+import es.upsa.tfg.domain.exceptions.MedicoNotFoundException;
 import es.upsa.tfg.medicos.application.usecases.GetMedicoByIdUseCase;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -21,7 +22,7 @@ public class MedicosResource
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public Response getMedicamentoById(@PathParam("id") String id)
+    public Response getMedicoById(@PathParam("id") String id)
     {
         Optional<Medico> medicoOpt = getMedicoById.execute(id);
         if (medicoOpt.isPresent()) return Response.ok().entity(medicoOpt.get()).build();
