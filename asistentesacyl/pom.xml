@@ -19,6 +19,8 @@
         <module>ws-pacientes</module>
         <module>ws-medicos</module>
         <module>ws-medicamentos</module>
+        <module>ws-citas</module>
+        <module>ws-posologias</module>
         <module>domain</module>
     </modules>
 
