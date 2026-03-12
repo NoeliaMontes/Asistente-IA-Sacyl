@@ -1,4 +1,4 @@
-package es.upsa.tfg.application.rest;
+package es.upsa.tfg.backend.adapters.input.rest;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
