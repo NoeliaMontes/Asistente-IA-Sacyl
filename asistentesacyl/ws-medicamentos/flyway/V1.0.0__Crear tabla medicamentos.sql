@@ -1,0 +1,9 @@
+CREATE TABLE MEDICAMENTOS
+(
+    ID                      VARCHAR(15),
+    NOMBRE                  VARCHAR(100),
+
+
+    CONSTRAINT "PK_MEDICAMENTOS"                    PRIMARY KEY (ID),
+    CONSTRAINT "NN_MEDICAMENTOS.NOMBRE"             CHECK (NOMBRE IS NOT NULL )
+);
