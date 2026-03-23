@@ -29,7 +29,7 @@ public class DaoImpl implements Dao
                             """
                             SELECT nombre
                             FROM medicos
-                            WHERE id = ?
+                            WHERE din = ?
                             """;
 
         try (

@@ -1,5 +1,4 @@
-
-CREATE SEQUENCE seq_medicos
+CREATE SEQUENCE seq_posologia
     MINVALUE 1
     MAXVALUE 999999998
     START WITH 1

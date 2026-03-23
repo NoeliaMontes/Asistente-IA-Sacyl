@@ -1,9 +1,9 @@
 CREATE TABLE PACIENTES
 (
-    ID                      VARCHAR(15),
-    NOMBRE                  VARCHAR(100),
+    CIPAUT                      VARCHAR(8),
+    NOMBRE                      VARCHAR(100),
 
 
-    CONSTRAINT "PK_PACIENTES"                    PRIMARY KEY (ID),
+    CONSTRAINT "PK_PACIENTES"                    PRIMARY KEY (CIPAUT),
     CONSTRAINT "NN_PACIENTES.NOMBRE"             CHECK (NOMBRE IS NOT NULL )
 );

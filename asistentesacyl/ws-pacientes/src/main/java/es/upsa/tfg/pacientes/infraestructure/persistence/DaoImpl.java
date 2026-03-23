@@ -29,7 +29,7 @@ public class DaoImpl implements Dao
                             """
                             SELECT nombre
                             FROM pacientes
-                            WHERE id = ?
+                            WHERE cipaut = ?
                             """;
 
         try (
