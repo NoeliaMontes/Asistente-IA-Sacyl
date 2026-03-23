@@ -16,7 +16,7 @@ public class SacylApp implements QuarkusApplication
     {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Indicame en qué puedo ayudarte");
+        System.out.println("Buenos días, indicame en qué puedo ayudarte");
         String question = scanner.nextLine();
         do {
             String answer = assistant.askQuestion(question);

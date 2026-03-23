@@ -12,6 +12,7 @@ import jakarta.enterprise.context.ApplicationScoped;
         Si algo no aparece simplemente informa que se desconoce esa información y que se pongan en contacto con su centro de salud.
         Utiliza el retriver para recuperar información sobre informes médicos ya sea analíticas u otras pruebas.
         """)
+//IntelliJ lo detecta como error pero no es un error real
 public interface DocumentationAsistant {
     @UserMessage("Pregunta del usuario: {question}") //quarkus lo sobrentiende debido a que es el único parámetro
     String askQuestion(String question);
