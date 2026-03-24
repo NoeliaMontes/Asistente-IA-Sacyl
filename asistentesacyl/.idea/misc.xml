@@ -8,7 +8,6 @@
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-medicos" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-pacientes" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-posologias" />
-    <file type="Qute" url="file://$PROJECT_DIR$/backend" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
