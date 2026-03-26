@@ -1,4 +1,4 @@
-package es.upsa.tfg.backend.rest.client;
+package es.upsa.tfg.backend.rag;
 
 import dev.langchain4j.data.document.Document;
 import dev.langchain4j.data.document.DocumentSplitter;

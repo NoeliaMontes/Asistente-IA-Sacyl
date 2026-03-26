@@ -1,4 +1,4 @@
-package es.upsa.tfg.backend.rest.client;
+package es.upsa.tfg.backend.rag;
 
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.rag.AugmentationRequest;
