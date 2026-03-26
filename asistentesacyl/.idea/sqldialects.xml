@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/ws-citas/flyway/V1.4.0__Crear tabla citas.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/ws-citas/flyway/V1.4.1__Crear secuencia citas.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/ws-medicamentos/flyway/V1.0.0__Crear tabla medicamentos.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/ws-medicamentos/flyway/V1.0.1__Crear secuencia medicamentos.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/ws-medicos/flyway/V1.1.0__Crear tabla medicos.sql" dialect="GenericSQL" />

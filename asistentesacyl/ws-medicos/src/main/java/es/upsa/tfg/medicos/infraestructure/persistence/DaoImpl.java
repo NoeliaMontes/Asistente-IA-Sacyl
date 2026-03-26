@@ -27,7 +27,7 @@ public class DaoImpl implements Dao
     {
         final String SQL =
                             """
-                            SELECT nombre
+                            SELECT nombre, tipo
                             FROM medicos
                             WHERE din = ?
                             """;
@@ -44,6 +44,7 @@ public class DaoImpl implements Dao
                     Medico.builder()
                             .id(id)
                             .nombre(resultSet.getString(1))
+                            .tipo(resultSet.getString(2))
                             .build()
                 ) : Optional.empty();
             }

@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Medico
+public class Cita
 {
     String id;
-    String nombre;
-    String tipo;
+    String id_medico;
+    String id_paciente;
 }
