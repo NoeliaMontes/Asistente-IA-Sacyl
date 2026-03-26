@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface Repository
 {
     List<Cita> getById(String id);
+
+    void deleteCita(String id);
 }

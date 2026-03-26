@@ -3,6 +3,7 @@ package es.upsa.tfg.citas.persistence;
 
 import es.upsa.tfg.citas.adapters.output.persistence.Dao;
 import es.upsa.tfg.domain.entities.Cita;
+import es.upsa.tfg.domain.exceptions.CitaNotFoundException;
 import es.upsa.tfg.domain.exceptions.PacienteNotFoundException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -58,5 +59,27 @@ public class DaoImpl implements Dao
         {
             throw new PacienteNotFoundException();
         }
+    }
+
+    @Override
+    public void deleteById(String id)
+    {
+        final String SQL =  """
+                            DELETE FROM citas
+                            WHERE id = ?
+                            """;
+        try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(SQL)
+        )
+        {
+            preparedStatement.setString(1, id);
+            int deleted = preparedStatement.executeUpdate();
+            if(deleted==0) throw new CitaNotFoundException();
+
+        } catch (SQLException e) {
+            throw new CitaNotFoundException();
+        }
+
     }
 }

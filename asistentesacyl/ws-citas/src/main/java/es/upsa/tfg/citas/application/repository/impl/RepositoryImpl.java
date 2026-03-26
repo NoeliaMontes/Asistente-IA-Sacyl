@@ -23,4 +23,10 @@ public class RepositoryImpl implements Repository
     {
         return dao.getById(id);
     }
+
+    @Override
+    public void deleteCita(String id)
+    {
+        dao.deleteById(id);
+    }
 }

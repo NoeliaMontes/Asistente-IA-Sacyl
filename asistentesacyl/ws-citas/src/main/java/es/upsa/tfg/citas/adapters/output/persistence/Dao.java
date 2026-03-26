@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface Dao
 {
     List<Cita> getById(String id);
+
+    void deleteById(String id);
 }
