@@ -22,6 +22,7 @@
         <module>ws-citas</module>
         <module>ws-posologias</module>
         <module>domain</module>
+        <module>aggregator</module>
     </modules>
 
 </project>

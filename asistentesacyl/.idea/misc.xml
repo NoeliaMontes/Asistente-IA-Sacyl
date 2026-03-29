@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="Quarkus" url="file://$PROJECT_DIR$/aggregator" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/backend" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-citas" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-medicamentos" />
@@ -20,6 +21,7 @@
         <option value="$PROJECT_DIR$/ws-medicamentos/pom.xml" />
         <option value="$PROJECT_DIR$/ws-citas/pom.xml" />
         <option value="$PROJECT_DIR$/ws-posologias/pom.xml" />
+        <option value="$PROJECT_DIR$/aggregator/pom.xml" />
       </list>
     </option>
   </component>
