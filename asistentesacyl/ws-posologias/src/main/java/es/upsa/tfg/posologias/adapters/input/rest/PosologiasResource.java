@@ -22,7 +22,7 @@ public class PosologiasResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public Response getMedicoById(@PathParam("id") String id)
+    public Response getPosologiaByPacienteId(@PathParam("id") String id)
     {
         Optional<Posologia> posologiaOpt = getPosologiaByPacienteId.execute(id);
         if (posologiaOpt.isPresent()) return Response.ok().entity(posologiaOpt.get()).build();

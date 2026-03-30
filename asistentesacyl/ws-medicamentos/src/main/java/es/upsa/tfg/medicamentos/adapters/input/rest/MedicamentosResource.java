@@ -33,7 +33,6 @@ public class MedicamentosResource {
         //En caso de que el opcional  no esté vacío se pasa en la respuesta el medicamento como entidad
         if (medicamentoOpt.isPresent()) return Response.ok().entity(medicamentoOpt.get()).build();
         //En caso de que el opcional esté vacío devolvemos MedicamentoNotFoundException
-        //Valorar si mejor devolver un 404.
         else throw new MedicamentoNotFoundException();
     }
 
