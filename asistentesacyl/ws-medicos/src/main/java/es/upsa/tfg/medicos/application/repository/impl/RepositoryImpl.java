@@ -1,6 +1,5 @@
 package es.upsa.tfg.medicos.application.repository.impl;
 
-import es.upsa.tfg.domain.entities.Medicamento;
 
 import es.upsa.tfg.domain.entities.Medico;
 import es.upsa.tfg.medicos.adapters.output.persistence.Dao;

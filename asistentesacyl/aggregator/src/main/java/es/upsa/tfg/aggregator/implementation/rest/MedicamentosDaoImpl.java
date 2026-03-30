@@ -2,15 +2,16 @@ package es.upsa.tfg.aggregator.implementation.rest;
 
 import es.upsa.tfg.aggregator.adapters.rest.MedicamentoDao;
 import es.upsa.tfg.aggregator.implementation.rest.restapi.MedicamentosRestClient;
-import es.upsa.tfg.aggregator.implementation.rest.restapi.PosologiasRestClient;
 import es.upsa.tfg.domain.entities.Medicamento;
 import es.upsa.tfg.domain.exceptions.MedicamentoNotFoundException;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.util.List;
 import java.util.Optional;
 
+@ApplicationScoped
 public class MedicamentosDaoImpl implements MedicamentoDao
 {
     @Inject

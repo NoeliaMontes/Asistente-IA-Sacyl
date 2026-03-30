@@ -1,8 +1,6 @@
 package es.upsa.tfg.medicos.infraestructure.persistence;
 
-import es.upsa.tfg.domain.entities.Medicamento;
 import es.upsa.tfg.domain.entities.Medico;
-import es.upsa.tfg.domain.exceptions.MedicamentoNotFoundException;
 import es.upsa.tfg.domain.exceptions.MedicoNotFoundException;
 import es.upsa.tfg.medicos.adapters.output.persistence.Dao;
 import jakarta.enterprise.context.ApplicationScoped;

@@ -27,6 +27,14 @@
             </ModuleState>
           </value>
         </entry>
+        <entry key="ws-citas">
+          <value>
+            <ModuleState>
+              <option name="hash" value="1350747654" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
         <entry key="ws-medicamentos">
           <value>
             <ModuleState>
@@ -38,12 +46,20 @@
         <entry key="ws-medicos">
           <value>
             <ModuleState>
-              <option name="hash" value="1350747654" />
+              <option name="hash" value="-1306600835" />
               <option name="version" value="1" />
             </ModuleState>
           </value>
         </entry>
         <entry key="ws-pacientes">
+          <value>
+            <ModuleState>
+              <option name="hash" value="1350747654" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-posologias">
           <value>
             <ModuleState>
               <option name="hash" value="1350747654" />
