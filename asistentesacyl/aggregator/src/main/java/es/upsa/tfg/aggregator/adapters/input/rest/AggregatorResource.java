@@ -1,5 +1,7 @@
 package es.upsa.tfg.aggregator.adapters.input.rest;
 
+import es.upsa.tfg.aggregator.application.usecases.GetPosologiaWithMedicinaByPacienteIdUseCase;
+import es.upsa.tfg.domain.aggregator.PosologiaWMedicina;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -21,7 +23,7 @@ public class AggregatorResource {
     @Path("/{id}")
     public Response getPosologiasWithMedicinaByPacienteId(@PathParam("id") String id)
     {
-        List<> listaPosologias = getPosologiaWithMedicinaByPacienteId.execute(id);
+        List<PosologiaWMedicina> listaPosologias = getPosologiaWithMedicinaByPacienteId.execute(id);
         return Response.ok().entity(listaPosologias).build();
     }
 }

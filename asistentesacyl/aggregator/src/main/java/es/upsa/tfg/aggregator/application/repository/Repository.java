@@ -1,10 +1,11 @@
 package es.upsa.tfg.aggregator.application.repository;
 
-import es.upsa.tfg.domain.entities.Medico;
 
-import java.util.Optional;
+import es.upsa.tfg.domain.entities.Posologia;
+
+import java.util.List;
 
 public interface Repository
 {
-    Optional<Medico> getById(String id);
+    List<Posologia> getPosologiasById(String id);
 }

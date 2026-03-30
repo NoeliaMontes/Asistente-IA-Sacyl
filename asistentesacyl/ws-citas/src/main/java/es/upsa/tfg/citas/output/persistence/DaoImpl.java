@@ -1,4 +1,4 @@
-package es.upsa.tfg.citas.persistence;
+package es.upsa.tfg.citas.output.persistence;
 
 
 import es.upsa.tfg.citas.adapters.output.persistence.Dao;

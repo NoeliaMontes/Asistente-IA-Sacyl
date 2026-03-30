@@ -1,23 +1,24 @@
 package es.upsa.tfg.aggregator.application.repository.impl;
 
-import es.upsa.tfg.domain.entities.Medico;
-import es.upsa.tfg.medicos.adapters.output.persistence.Dao;
-import es.upsa.tfg.medicos.application.repository.Repository;
+
+import es.upsa.tfg.aggregator.adapters.rest.PosologiaDao;
+import es.upsa.tfg.aggregator.application.repository.Repository;
+import es.upsa.tfg.domain.entities.Posologia;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
-import java.util.Optional;
+import java.util.List;
 
 @ApplicationScoped
 public class RepositoryImpl implements Repository
 {
-    //Injectamos el Dao
+
     @Inject
-    Dao dao;
+    PosologiaDao posologiaDao;
 
     @Override
-    public Optional<Medico> getById(String id)
+    public List<Posologia> getPosologiasById(String id)
     {
-        return dao.getById(id);
+        return posologiaDao.getAllById(id);
     }
 }
