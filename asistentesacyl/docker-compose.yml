@@ -101,6 +101,12 @@ services:
     build:
       context: ./aggregator
       dockerfile: Dockerfile
+    depends_on:
+      - ws-medicos
+      - ws-pacientes
+      - ws-medicamentos
+      - ws-citas
+      - ws-posologias
 
 
   ngnix:
