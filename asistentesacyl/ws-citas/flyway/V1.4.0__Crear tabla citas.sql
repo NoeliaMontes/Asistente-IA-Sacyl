@@ -2,12 +2,12 @@ CREATE TABLE CITAS
 (
     ID                      VARCHAR(15),
     MEDICO_ID               NUMERIC(9),
-    PACIENTE_ID             VARCHAR(8),
+    PACIENTE_ID             VARCHAR(13),
     LUGAR                   VARCHAR(13),
     MOTIVO                  VARCHAR(150),
-    FECHA                   VARCHAR(11),
-    HORA                    VARCHAR(5),
-    TIPO                    VARCHAR(15),
+    FECHA                   DATE,
+    HORA                    TIME,
+    TIPO                    VARCHAR(20),
 
     CONSTRAINT "PK_CITAS"                    PRIMARY KEY (ID),
     CONSTRAINT "NN_CITAS.MEDICO_ID"          CHECK (MEDICO_ID IS NOT NULL ),
@@ -17,6 +17,7 @@ CREATE TABLE CITAS
     CONSTRAINT "NN_CITAS.FECHA"              CHECK (FECHA IS NOT NULL ),
     CONSTRAINT "NN_CITAS.HORA"               CHECK (HORA IS NOT NULL ),
     CONSTRAINT "NN_CITAS.TIPO"               CHECK (TIPO IS NOT NULL ),
+    CONSTRAINT "CH_CITAS.LUGAR"              CHECK (LUGAR IN ('PRESENCIAL', 'NO PRESENCIAL')),
     CONSTRAINT "CH_CITAS.TIPO"               CHECK (TIPO IN ('MATRONA', 'MEDICINA', 'ENFERMERIA','TRABAJADOR SOCIAL','VACUNAS ADULTOS','VACUNAS PEDIATRIA','ANALISIS')),
 
     CONSTRAINT "FK_CITAS.MEDICO_ID"      FOREIGN KEY (MEDICO_ID)    REFERENCES MEDICOS(DIN),

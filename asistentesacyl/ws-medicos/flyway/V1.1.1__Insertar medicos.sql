@@ -1,0 +1,22 @@
+INSERT INTO MEDICOS (DIN, NOMBRE)
+VALUES
+    (100000001, 'Dr. Juan Pérez'),
+    (100000002, 'Dra. María García'),
+    (100000003, 'Dr. Carlos López'),
+    (100000004, 'Dra. Ana Martínez'),
+    (100000005, 'Dr. Luis Rodríguez'),
+    (100000006, 'Dra. Laura Sánchez'),
+    (100000007, 'Dr. Miguel Fernández'),
+    (100000008, 'Dra. Carmen Gómez'),
+    (100000009, 'Dr. Javier Díaz'),
+    (100000010, 'Dra. Isabel Ruiz'),
+    (100000011, 'Dr. Antonio Moreno'),
+    (100000012, 'Dra. Patricia Jiménez'),
+    (100000013, 'Dr. Francisco Hernández'),
+    (100000014, 'Dra. Silvia Álvarez'),
+    (100000015, 'Dr. Daniel Romero'),
+    (100000016, 'Dra. Beatriz Navarro'),
+    (100000017, 'Dr. Alberto Torres'),
+    (100000018, 'Dra. Raquel Domínguez'),
+    (100000019, 'Dr. Sergio Vázquez'),
+    (100000020, 'Dra. Elena Castro');

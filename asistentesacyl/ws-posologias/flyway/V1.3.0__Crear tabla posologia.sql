@@ -2,7 +2,7 @@ CREATE TABLE POSOLOGIAS
 (
     ID                      VARCHAR(15),
     MEDICO_ID               NUMERIC(9),
-    PACIENTE_ID             VARCHAR(8),
+    PACIENTE_ID             VARCHAR(13),
     MEDICINA_ID             VARCHAR(15),
     DOSIS                   NUMERIC(5),
     FRECUENCICA             NUMERIC(5),
