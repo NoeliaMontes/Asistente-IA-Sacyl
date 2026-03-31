@@ -20,7 +20,7 @@ public class AggregatorResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{id}")
+    @Path("/posologias/{id}")
     public Response getPosologiasWithMedicinaByPacienteId(@PathParam("id") String id)
     {
         List<PosologiaWMedicina> listaPosologias = getPosologiaWithMedicinaByPacienteId.execute(id);

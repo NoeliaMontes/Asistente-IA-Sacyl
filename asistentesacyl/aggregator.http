@@ -1,0 +1,2 @@
+### GET /relacciones/animales/{id}
+GET http://localhost/aggregator/posologias/CYL0000000009

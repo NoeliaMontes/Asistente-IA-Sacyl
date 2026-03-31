@@ -25,8 +25,8 @@ public class DaoImpl implements Dao
     {
         final String SQL =
                             """
-                            SELECT id,medicamento_id,medico_id, dosis, frecuencia, unidad
-                            FROM posologia
+                            SELECT id, medicina_id, medico_id, dosis, frecuencia, unidad
+                            FROM posologias
                             WHERE paciente_id = ?
                             """;
 
@@ -50,9 +50,10 @@ public class DaoImpl implements Dao
                                 .build()
                 ) : Optional.empty();
             }
-        } catch (SQLException e)
+        }catch (SQLException e)
         {
-            throw new PosologiaNotFoundException();
+            e.printStackTrace(); // 🔥 verás el error real en logs
+            throw new RuntimeException(e);
         }
     }
 }
