@@ -29,6 +29,7 @@ public class GetPosologiaWithMedicinaByPacienteIdUseCaseImpl implements GetPosol
         List<Posologia> listPosologias = repository.getPosologiasById(id);
         if(listPosologias.isEmpty())
         {
+            System.out.println("No hay posologia");
             return listaPyM;
         }
         else
@@ -37,6 +38,7 @@ public class GetPosologiaWithMedicinaByPacienteIdUseCaseImpl implements GetPosol
                 Optional<Medicamento> medicamento = repository.getMedicamentoById(posologia.getId_medicina());
                 if (medicamento.isPresent())
                 {
+                    System.out.println("Hay posologia y medicamento");
                     listaPyM.add(PosologiaWMedicina.builder()
                             .id(posologia.getId())
                             .dosis(posologia.getDosis())
@@ -45,6 +47,7 @@ public class GetPosologiaWithMedicinaByPacienteIdUseCaseImpl implements GetPosol
                             .medicamento(medicamento.get())
                             .build());
                 }
+                System.out.println("No hay medicamento");
             }
             return listaPyM;
         }
