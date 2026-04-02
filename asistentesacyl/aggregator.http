@@ -1,2 +1,5 @@
 ### GET /relacciones/animales/{id}
-GET http://localhost/aggregator/aggregator
+GET http://localhost/aggregator/posologias/CYL0000000002
+
+### GET /relacciones/animales/{id}
+GET http://localhost/posologias/CYL0000000002

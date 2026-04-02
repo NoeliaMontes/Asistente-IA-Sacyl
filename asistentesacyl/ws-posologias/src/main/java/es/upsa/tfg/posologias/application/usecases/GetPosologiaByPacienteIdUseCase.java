@@ -2,9 +2,10 @@ package es.upsa.tfg.posologias.application.usecases;
 
 import es.upsa.tfg.domain.entities.Posologia;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface GetPosologiaByPacienteIdUseCase
 {
-    Optional<Posologia> execute(String id);
+    List<Posologia> execute(String id);
 }

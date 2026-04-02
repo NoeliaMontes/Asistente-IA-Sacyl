@@ -7,6 +7,7 @@ import es.upsa.tfg.posologias.application.repository.Repository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -17,7 +18,7 @@ public class RepositoryImpl implements Repository
     Dao dao;
 
     @Override
-    public Optional<Posologia> getById(String id)
+    public List<Posologia> getById(String id)
     {
         return dao.getById(id);
     }

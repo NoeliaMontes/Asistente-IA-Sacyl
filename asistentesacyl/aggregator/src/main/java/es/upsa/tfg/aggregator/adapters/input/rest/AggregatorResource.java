@@ -12,7 +12,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
-@Path("/")
+@Path("/posologias")
 public class AggregatorResource {
 
     @Inject
@@ -20,11 +20,11 @@ public class AggregatorResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Path("/posologias/{id}")
-    public Response getPosologiasWithMedicinaByPacienteId()//@PathParam("id") String id)
+    @Path("/{id}")
+    public Response getPosologiasWithMedicinaByPacienteId(@PathParam("id") String id)
     {
         System.out.println("Entra el request");
-        List<PosologiaWMedicina> listaPosologias = getPosologiaWithMedicinaByPacienteId.execute("CYL0000000009");
+        List<PosologiaWMedicina> listaPosologias = getPosologiaWithMedicinaByPacienteId.execute(id);
         return Response.ok().entity(listaPosologias).build();
     }
 }

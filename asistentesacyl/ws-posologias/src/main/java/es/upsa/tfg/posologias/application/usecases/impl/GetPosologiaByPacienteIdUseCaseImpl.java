@@ -7,6 +7,7 @@ import es.upsa.tfg.posologias.application.usecases.GetPosologiaByPacienteIdUseCa
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -16,7 +17,7 @@ public class GetPosologiaByPacienteIdUseCaseImpl implements GetPosologiaByPacien
     Repository repository;
 
     @Override
-    public Optional<Posologia> execute(String id) {
+    public List<Posologia> execute(String id) {
         return repository.getById(id);
     }
 }

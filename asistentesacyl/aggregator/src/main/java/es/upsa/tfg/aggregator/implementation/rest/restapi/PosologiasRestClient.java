@@ -10,8 +10,6 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import java.util.List;
 
 @RegisterRestClient(baseUri = "http://ngnix")
-//@RegisterProvider(StringToListParamConverterProvider.class)
-//@RegisterProvider(MsPeliculasResponseExceptionMapper.class)
 @Path("/posologias")
 public interface PosologiasRestClient
 {

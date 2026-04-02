@@ -11,6 +11,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.util.List;
 import java.util.Optional;
 
 @Path("/posologias")
@@ -24,8 +25,7 @@ public class PosologiasResource {
     @Path("/{id}")
     public Response getPosologiaByPacienteId(@PathParam("id") String id)
     {
-        Optional<Posologia> posologiaOpt = getPosologiaByPacienteId.execute(id);
-        if (posologiaOpt.isPresent()) return Response.ok().entity(posologiaOpt.get()).build();
-        else throw new PosologiaNotFoundException();
+        List<Posologia> posologias = getPosologiaByPacienteId.execute(id);
+        return Response.ok().entity(posologias).build();
     }
 }
