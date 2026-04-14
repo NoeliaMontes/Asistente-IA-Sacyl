@@ -23,6 +23,7 @@
         <module>ws-posologias</module>
         <module>domain</module>
         <module>aggregator</module>
+        <module>security</module>
     </modules>
 
 </project>

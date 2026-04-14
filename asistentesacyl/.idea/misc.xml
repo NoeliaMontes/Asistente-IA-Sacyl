@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="Quarkus" url="file://$PROJECT_DIR$/aggregator" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/backend" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/security" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-citas" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-medicamentos" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-medicos" />
@@ -22,6 +23,7 @@
         <option value="$PROJECT_DIR$/ws-citas/pom.xml" />
         <option value="$PROJECT_DIR$/ws-posologias/pom.xml" />
         <option value="$PROJECT_DIR$/aggregator/pom.xml" />
+        <option value="$PROJECT_DIR$/security/pom.xml" />
       </list>
     </option>
   </component>
