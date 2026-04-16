@@ -16,7 +16,6 @@ public interface PacientesRestClient
 {
 
     @POST
-    @Path("/animales")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     Paciente getPaciente(PacienteDto pacienteDto);

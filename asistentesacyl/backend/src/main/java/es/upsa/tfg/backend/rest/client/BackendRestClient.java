@@ -21,4 +21,6 @@ public interface BackendRestClient
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/posologia/{id}")
     Response getPosologia(@PathParam("id") String id);
+
+    
 }

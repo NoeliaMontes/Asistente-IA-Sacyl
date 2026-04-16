@@ -23,11 +23,10 @@ public class TokenSecurityResource {
     @Inject
     GetPacienteByIdUseCase getPacienteByIdUseCase;
 
-    @GET
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{id}")
-    public Response returnToken(@PathParam("id") String id) {
-        PacienteDto pacienteDto = PacienteDto.builder().build();
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response returnToken(PacienteDto pacienteDto) {
         Optional<Paciente> paciente = getPacienteByIdUseCase.execute(pacienteDto);
         if (paciente.isPresent()) return Response.ok().entity(generator.generate(paciente.get())).build();
         else throw new RuntimeException();
