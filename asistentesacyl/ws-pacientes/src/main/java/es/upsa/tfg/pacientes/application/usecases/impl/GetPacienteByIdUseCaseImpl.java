@@ -1,5 +1,6 @@
 package es.upsa.tfg.pacientes.application.usecases.impl;
 
+import es.upsa.tfg.domain.dtos.PacienteDto;
 import es.upsa.tfg.domain.entities.Medicamento;
 
 import es.upsa.tfg.domain.entities.Paciente;
@@ -17,7 +18,7 @@ public class GetPacienteByIdUseCaseImpl implements GetPacienteByIdUseCase
     Repository repository;
 
     @Override
-    public Optional<Paciente> execute(String id) {
-        return repository.getById(id);
+    public Optional<Paciente> execute(PacienteDto pacienteDto) {
+        return repository.getById(pacienteDto);
     }
 }

@@ -1,5 +1,6 @@
 package es.upsa.tfg.security.adapters.input.rest;
 
+import es.upsa.tfg.domain.dtos.PacienteDto;
 import es.upsa.tfg.domain.entities.Paciente;
 import es.upsa.tfg.security.application.security.GenerateToken;
 import es.upsa.tfg.security.application.usecases.GetPacienteByIdUseCase;
@@ -26,8 +27,8 @@ public class TokenSecurityResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response returnToken(@PathParam("id") String id) {
-        System.out.println("ID RAW: [" + id + "]");
-        Optional<Paciente> paciente = getPacienteByIdUseCase.execute(id);
+        PacienteDto pacienteDto = PacienteDto.builder().build();
+        Optional<Paciente> paciente = getPacienteByIdUseCase.execute(pacienteDto);
         if (paciente.isPresent()) return Response.ok().entity(generator.generate(paciente.get())).build();
         else throw new RuntimeException();
     }

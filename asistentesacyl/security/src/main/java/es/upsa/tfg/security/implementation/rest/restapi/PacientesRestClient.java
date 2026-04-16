@@ -1,11 +1,9 @@
 package es.upsa.tfg.security.implementation.rest.restapi;
 
 
+import es.upsa.tfg.domain.dtos.PacienteDto;
 import es.upsa.tfg.domain.entities.Paciente;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
@@ -17,9 +15,10 @@ import java.util.Optional;
 public interface PacientesRestClient
 {
 
-    @GET
+    @POST
+    @Path("/animales")
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{id}")
-    Paciente getPacienteById(@PathParam("id") String id);
+    @Consumes(MediaType.APPLICATION_JSON)
+    Paciente getPaciente(PacienteDto pacienteDto);
 
 }

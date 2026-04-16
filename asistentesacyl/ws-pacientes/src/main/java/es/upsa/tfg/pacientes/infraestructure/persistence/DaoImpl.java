@@ -1,5 +1,6 @@
 package es.upsa.tfg.pacientes.infraestructure.persistence;
 
+import es.upsa.tfg.domain.dtos.PacienteDto;
 import es.upsa.tfg.domain.entities.Medicamento;
 import es.upsa.tfg.domain.entities.Paciente;
 import es.upsa.tfg.domain.exceptions.MedicamentoNotFoundException;
@@ -23,13 +24,13 @@ public class DaoImpl implements Dao
 
 
     @Override
-    public Optional<Paciente> getById(String id)
+    public Optional<Paciente> getById(PacienteDto pacienteDto)
     {
         final String SQL =
                             """
                             SELECT nombre
                             FROM pacientes
-                            WHERE cipaut = ?
+                            WHERE cipaut = ? and apellido1 = ?
                             """;
 
         try (
@@ -37,13 +38,15 @@ public class DaoImpl implements Dao
                 PreparedStatement preparedStatement = connection.prepareStatement(SQL);
             )
         {
-            preparedStatement.setString(1, id);
+            preparedStatement.setString(1, pacienteDto.getId());
+            preparedStatement.setString(2, pacienteDto.getApellido());
             try (ResultSet resultSet = preparedStatement.executeQuery())
             {
                 return (resultSet.next()) ? Optional.of(
                     Paciente.builder()
-                            .id(id)
+                            .id(pacienteDto.getId())
                             .nombre(resultSet.getString(1))
+                            .apellido(pacienteDto.getApellido())
                             .build()
                 ) : Optional.empty();
             }

@@ -1,5 +1,6 @@
 package es.upsa.tfg.security.application.usecases.impl;
 
+import es.upsa.tfg.domain.dtos.PacienteDto;
 import es.upsa.tfg.domain.entities.Paciente;
 import es.upsa.tfg.security.application.repository.Repository;
 import es.upsa.tfg.security.application.usecases.GetPacienteByIdUseCase;
@@ -15,7 +16,7 @@ public class GetPacienteByIdUseCaseImpl implements GetPacienteByIdUseCase
     Repository repository;
 
     @Override
-    public Optional<Paciente> execute(String id) {
-        return repository.getById(id);
+    public Optional<Paciente> execute(PacienteDto pacienteDto) {
+        return repository.getPaciente(pacienteDto);
     }
 }

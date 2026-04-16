@@ -1,5 +1,6 @@
 package es.upsa.tfg.security.implementation.rest;
 
+import es.upsa.tfg.domain.dtos.PacienteDto;
 import es.upsa.tfg.domain.entities.Paciente;
 import es.upsa.tfg.security.adapters.output.persistence.PacientesDao;
 import es.upsa.tfg.security.implementation.rest.restapi.PacientesRestClient;
@@ -17,8 +18,8 @@ public class PacientesDaoImpl implements PacientesDao
     PacientesRestClient restClient;
 
     @Override
-    public Optional<Paciente> getById(String id)
+    public Optional<Paciente> getPaciente(PacienteDto pacienteDto)
     {
-        return Optional.of( restClient.getPacienteById(id));
+        return Optional.of( restClient.getPaciente(pacienteDto));
     }
 }

@@ -1,4 +1,4 @@
-package es.upsa.tfg.domain.entities;
+package es.upsa.tfg.domain.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Paciente
+public class CitaDto
 {
-    String id;
-    String nombre;
-    String apellido;
+
 }
