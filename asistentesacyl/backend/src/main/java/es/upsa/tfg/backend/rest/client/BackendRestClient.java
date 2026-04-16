@@ -22,5 +22,5 @@ public interface BackendRestClient
     @Path("/posologia/{id}")
     Response getPosologia(@PathParam("id") String id);
 
-    
+
 }
