@@ -14,16 +14,7 @@ public class SacylApp implements QuarkusApplication
     @Override
     public int run(String... args) throws Exception
     {
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Buenos días, indicame en qué puedo ayudarte");
-        String question = scanner.nextLine();
-        do {
-            String answer = assistant.askQuestion(question);
-            System.out.println(answer);
-            question = scanner.nextLine();
-        }while(!question.equals("salir"));
-
+        io.quarkus.runtime.Quarkus.waitForExit();
         return 0;
     }
 

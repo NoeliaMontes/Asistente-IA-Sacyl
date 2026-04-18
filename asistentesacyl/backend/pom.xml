@@ -82,6 +82,14 @@
             <artifactId>pdfbox</artifactId>
             <version>3.0.5</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.jwt</groupId>
+            <artifactId>microprofile-jwt-auth-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-jwt</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
