@@ -108,6 +108,13 @@ services:
       - ws-citas
       - ws-posologias
 
+  security:
+    build:
+      context: ./security
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+
 
   ngnix:
     image: nginx
