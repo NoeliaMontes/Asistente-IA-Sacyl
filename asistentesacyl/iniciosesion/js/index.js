@@ -17,7 +17,7 @@ async function iniciarSesion() {
 async function verify(cipaut, apellido)
     {
         try {
-            const response =await fetch("http://localhost:8083/secure", {
+            const response =await fetch("http://security:8083/secure", {
                 method: "POST",
                 body: JSON.stringify({ id: cipaut, apellido:apellido }),})
 

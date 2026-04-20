@@ -10,6 +10,6 @@ POST http://localhost:8080/secure
 Content-Type: application/json
 
 {
-  "id": "24",
-  "apellido": "Apellido"
+  "id": "CYL0000000006",
+  "apellido": "Ruiz"
 }

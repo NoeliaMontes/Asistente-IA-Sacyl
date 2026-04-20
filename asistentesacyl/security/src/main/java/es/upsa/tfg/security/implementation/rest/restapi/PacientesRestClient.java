@@ -10,7 +10,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import java.util.Optional;
 
-@RegisterRestClient(baseUri = "http://localhost:80")
+@RegisterRestClient(baseUri = "http://ws-pacientes:8080")
 @Path("/pacientes")
 public interface PacientesRestClient
 {
