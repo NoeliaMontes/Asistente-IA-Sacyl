@@ -27,7 +27,6 @@ public class TokenSecurityResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response returnToken(PacienteDto pacienteDto) {
-        System.out.println(">>> ENTERED METHOD");
         Optional<Paciente> paciente = getPacienteByIdUseCase.execute(pacienteDto);
         if (paciente.isPresent()) return Response.ok().entity(generator.generate(paciente.get())).build();
         else return Response.status(404).build();

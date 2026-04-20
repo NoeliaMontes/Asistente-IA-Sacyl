@@ -17,8 +17,12 @@ async function iniciarSesion() {
 async function verify(cipaut, apellido)
     {
         try {
-            const response =await fetch("http://security:8083/secure", {
+            const response =await fetch("http://127.0.0.1:8080/secure", {
                 method: "POST",
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 body: JSON.stringify({ id: cipaut, apellido:apellido }),})
 
             if (!response.ok) {
