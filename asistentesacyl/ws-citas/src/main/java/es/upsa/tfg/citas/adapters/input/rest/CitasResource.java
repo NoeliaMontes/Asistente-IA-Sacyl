@@ -36,7 +36,7 @@ public class CitasResource {
         return Response.ok().entity(listaCitas).build();
     }
 
-    
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

@@ -16,6 +16,7 @@
 
     <modules>
         <module>backend</module>
+        <module>frontend</module>
         <module>ws-pacientes</module>
         <module>ws-medicos</module>
         <module>ws-medicamentos</module>
