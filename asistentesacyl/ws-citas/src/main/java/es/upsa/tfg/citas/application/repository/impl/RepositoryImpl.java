@@ -4,6 +4,7 @@ package es.upsa.tfg.citas.application.repository.impl;
 
 import es.upsa.tfg.citas.adapters.output.persistence.Dao;
 import es.upsa.tfg.citas.application.repository.Repository;
+import es.upsa.tfg.domain.dtos.CitaDto;
 import es.upsa.tfg.domain.entities.Cita;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -28,5 +29,11 @@ public class RepositoryImpl implements Repository
     public void deleteCita(String id)
     {
         dao.deleteById(id);
+    }
+
+    @Override
+    public Cita postCita(CitaDto citaDto)
+    {
+        return dao.post(citaDto);
     }
 }

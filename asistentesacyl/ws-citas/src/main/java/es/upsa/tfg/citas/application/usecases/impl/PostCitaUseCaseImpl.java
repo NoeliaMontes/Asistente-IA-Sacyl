@@ -10,6 +10,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 public class PostCitaUseCaseImpl implements PostCitaUseCase
@@ -20,7 +21,6 @@ public class PostCitaUseCaseImpl implements PostCitaUseCase
 
     @Override
     public Cita execute(CitaDto citaDto) {
-        return null;
-        //return repository.postCita(citaDto);
+        return repository.postCita(citaDto);
     }
 }

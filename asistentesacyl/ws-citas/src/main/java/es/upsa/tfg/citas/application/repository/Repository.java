@@ -2,6 +2,7 @@ package es.upsa.tfg.citas.application.repository;
 
 
 
+import es.upsa.tfg.domain.dtos.CitaDto;
 import es.upsa.tfg.domain.entities.Cita;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface Repository
     List<Cita> getById(String id);
 
     void deleteCita(String id);
+
+    Cita postCita(CitaDto citaDto);
 }

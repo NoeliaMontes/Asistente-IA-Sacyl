@@ -36,7 +36,7 @@ public class CitasResource {
         return Response.ok().entity(listaCitas).build();
     }
 
-    /*
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -45,7 +45,7 @@ public class CitasResource {
         Cita citaInsertada = postCitaUseCase.execute(citaDto);
         return Response.created(createUri(uriInfo, citaInsertada)).entity(citaInsertada).build();
     }
-*/
+
 
     @DELETE
     @Path("/{id}")

@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="Quarkus" url="file://$PROJECT_DIR$/aggregator" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/backend" />
+    <file type="Quarkus" url="file://$PROJECT_DIR$/frontend" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/security" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-citas" />
     <file type="Quarkus" url="file://$PROJECT_DIR$/ws-medicamentos" />
@@ -24,7 +25,13 @@
         <option value="$PROJECT_DIR$/ws-posologias/pom.xml" />
         <option value="$PROJECT_DIR$/aggregator/pom.xml" />
         <option value="$PROJECT_DIR$/security/pom.xml" />
+        <option value="$PROJECT_DIR$/frontend/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/frontend/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
