@@ -136,8 +136,10 @@ services:
       DATABASE_NAME: upsa
       DATABASE_USERNAME: system
       DATABASE_PASSWORD: manager
+    volumes:
+      - ./backend/docs:/deployments/docs
     ports:
-      - 8084:8084
+      - 8084:8080
     depends_on:
       - aggregator
 
@@ -146,7 +148,7 @@ services:
       context: ./security
       dockerfile: Dockerfile
     ports:
-      - 8080:8080
+      - 8083:8080
 
 
   ngnix:

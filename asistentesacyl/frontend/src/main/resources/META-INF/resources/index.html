@@ -78,11 +78,19 @@
     let connected = false;
     let socket;
     let username = "";
+    let token = "";
 
 
 
     $(document).ready(function () {
         let name = $("#name");
+        let params = new URLSearchParams(window.location.search);
+        token = params.get("token");
+
+        if (!token) {
+            alert("No se encontró token");
+            throw new Error("Falta token");
+        }
 
         $("#connect").click(connect);
         $("#send").click(send);
@@ -110,8 +118,8 @@
     let connect = function () {
         if (!connected) {
             let name = $("#name");
-            username = name.val() ||  "Anonimo";
-            socket = new WebSocket("ws://" + location.host + "/chat/" + username);
+            username = "Usuario";
+            socket = new WebSocket("ws://" + location.host + "/chat/" + token);
             socket.onopen = function () {
                 connected = true;
                 console.log("Connected to the web socket");

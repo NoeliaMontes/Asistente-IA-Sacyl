@@ -6,10 +6,17 @@ GET http://localhost/posologias/CYL0000000002
 
 
 ### GET /relacciones/animales/{id}
-POST http://127.0.0.1:8080/secure
+POST http://127.0.0.1:8083/secure
 Content-Type: application/json
 
 {
   "id": "CYL0000000006",
   "apellido": "Ruiz"
+}
+
+### GET /relacciones/animales/{id}
+POST http://127.0.0.1:8084/backend/eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJDWUwwMDAwMDAwMDA2IiwiZ2l2ZW5fbmFtZSI6IkxhdXJhIiwiaWF0IjoxNzc3NTMyMjA3LCJleHAiOjE3Nzc1MzI1MDcsImp0aSI6Ijk3ZTkwYjU1LTk1NzQtNGI1Ny1iNjcwLWM3NmQwZmE2OTFlZiJ9.iBSFeDBt6kEaXFMqsyeQCkVrZU87Z6xAte29mMZxm8QleRL3hClCrL6sGYqJZfkj9ugRXwRjJa0pvGhy8IDtGVzglyQbSNT0BbZ8_2FVjqHuzLAuZgjUxdbYert3NIPLMyECLM5N5JiCxG_4msN8gzFBIOApd_y4syQxO2boLOLjRAHhXXTmQuw4I9H62L30xfPMdIbEZORUVXjmygitbiJ5fedVdd5rtdW3KTn_QY5jcJtf6B_fJ0qHrGCnM3mC9C0M2pbQhZuqk1gj6nqCjJvDyjAhDakNtVjXfNQYhWZIXywpb08LKxZ054omL2qwOwHAOXjEgt6IkPfNwMSS5A
+
+{
+  "Respone hola"
 }

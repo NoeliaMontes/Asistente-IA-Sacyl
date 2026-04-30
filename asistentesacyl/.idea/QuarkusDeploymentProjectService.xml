@@ -27,6 +27,14 @@
             </ModuleState>
           </value>
         </entry>
+        <entry key="frontend">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-468325997" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
         <entry key="pacientes">
           <value>
             <ModuleState>

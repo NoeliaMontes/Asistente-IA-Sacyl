@@ -26,13 +26,13 @@ public class ChatWebSocket {
 
     @OnOpen(broadcast = true)
     public ChatMessage onOpen(WebSocketConnection connection) {
-        this.token = connection.pathParam(token);
-        return new ChatMessage(MessageType.USER_JOINED, connection.pathParam("User"), null);
+        this.token = connection.pathParam("token");
+        return new ChatMessage(MessageType.USER_JOINED, "Usuario", null);
     }
 
     @OnClose
     public void onClose() {
-        ChatMessage departure = new ChatMessage(MessageType.USER_LEFT, connection.pathParam("User"), null);
+        ChatMessage departure = new ChatMessage(MessageType.USER_LEFT,"Usuario", null);
         connection.broadcast().sendTextAndAwait(departure);
     }
 
