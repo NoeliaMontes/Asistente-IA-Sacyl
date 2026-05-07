@@ -1,14 +1,13 @@
-package es.upsa.tfg.backend;
+package es.upsa.tfg.backend.application.ai;
 
 import dev.langchain4j.agent.tool.Tool;
 import es.upsa.tfg.domain.aggregator.PosologiaWMedicina;
 import es.upsa.tfg.domain.entities.Cita;
 import jakarta.transaction.Transactional;
 
-import java.time.LocalDate;
 import java.util.List;
 
-public class BackendRepository
+public class ToolRepository
 {
     @Tool("Cancelar una cita")
     @Transactional

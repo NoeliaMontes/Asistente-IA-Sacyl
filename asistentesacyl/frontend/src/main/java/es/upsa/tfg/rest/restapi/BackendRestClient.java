@@ -6,7 +6,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import java.text.ParseException;
 
-@RegisterRestClient(baseUri = "http://backend:8084")
+@RegisterRestClient(baseUri = "http://localhost:8084")
 @Path("/backend")
 public interface BackendRestClient
 {
@@ -14,6 +14,6 @@ public interface BackendRestClient
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/{token}")
     @POST
-     String askQuestion(String question, @PathParam("token") String token) throws ParseException;
+     String askQuestion(@PathParam("token") String token,String question) throws ParseException;
 
 }

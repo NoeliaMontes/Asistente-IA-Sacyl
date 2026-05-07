@@ -1,4 +1,4 @@
-package es.upsa.tfg.backend.rag;
+package es.upsa.tfg.backend.application.ai.rag;
 
 import dev.langchain4j.data.document.Document;
 import dev.langchain4j.data.document.DocumentSplitter;
@@ -45,8 +45,12 @@ public class RagIngestion {
                 .filter(path -> path.toString().toLowerCase().endsWith(".pdf"))
                 .map(path -> {
                     try {
-                        Log.info("Cargando PDF: " + path);
-                        return parseAsDocument(path);
+                        Path relative = Path.of("docs").relativize(path);
+                        String userId = relative.getName(0).toString();
+                        Document document = parseAsDocument(path);
+                        //Añadimos metadata para filtrar
+                        document.metadata().put("id",userId);
+                        return document;
                     } catch (IOException e) {
                         throw new RuntimeException("Error leyendo PDF " + path, e);
                     }

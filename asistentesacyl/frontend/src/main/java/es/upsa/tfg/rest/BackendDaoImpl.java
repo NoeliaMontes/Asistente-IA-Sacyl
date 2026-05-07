@@ -20,8 +20,9 @@ public class BackendDaoImpl implements BackendDao
     public String respuesta(String question,String token)
     {
         try {
-            return restClient.askQuestion(question, token);
+            return restClient.askQuestion(token,question);
         } catch (Exception e) {
+            System.out.println(e);
             return null;
         }
 

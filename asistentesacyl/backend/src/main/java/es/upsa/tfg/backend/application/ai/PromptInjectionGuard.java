@@ -1,4 +1,4 @@
-package es.upsa.tfg.backend;
+package es.upsa.tfg.backend.application.ai;
 
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.guardrail.InputGuardrail;

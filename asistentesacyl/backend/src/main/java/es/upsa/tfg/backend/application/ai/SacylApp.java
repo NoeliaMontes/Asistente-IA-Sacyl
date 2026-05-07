@@ -1,9 +1,7 @@
-package es.upsa.tfg.backend;
+package es.upsa.tfg.backend.application.ai;
 
 import io.quarkus.runtime.QuarkusApplication;
 import jakarta.inject.Inject;
-
-import java.util.Scanner;
 
 public class SacylApp implements QuarkusApplication
 {

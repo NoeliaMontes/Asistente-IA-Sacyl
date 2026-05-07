@@ -1,4 +1,4 @@
-package es.upsa.tfg.backend;
+package es.upsa.tfg.backend.application.ai;
 
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;

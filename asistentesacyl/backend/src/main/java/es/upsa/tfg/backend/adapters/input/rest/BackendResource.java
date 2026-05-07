@@ -1,6 +1,7 @@
 package es.upsa.tfg.backend.adapters.input.rest;
 
-import es.upsa.tfg.backend.DocumentationAsistant;
+import es.upsa.tfg.backend.application.ai.DocumentationAsistant;
+import es.upsa.tfg.backend.application.utils.UserContext;
 import io.smallrye.jwt.auth.principal.JWTParser;
 import io.smallrye.jwt.auth.principal.ParseException;
 import jakarta.inject.Inject;
@@ -18,6 +19,9 @@ public class BackendResource {
     @Inject
     JWTParser parser;
 
+    @Inject
+    UserContext context;
+
 
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
@@ -27,7 +31,8 @@ public class BackendResource {
     {
         JsonWebToken jwt = parser.parse(token);
         String userID = jwt.getClaim(Claims.sub.name());
-        System.out.println(userID);
+        context.setUserId(userID);
+
         return assistant.askQuestion(question);
     }
 
