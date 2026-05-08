@@ -49,7 +49,7 @@ public class DaoImpl implements Dao
                             .id_medico(resultSet.getString(3))
                             .id_paciente(id)
                             .dosis(resultSet.getInt(4))
-                            .frecuencia(resultSet.getDouble(5))
+                            .frecuencia(resultSet.getInt(5))
                             .unidad(resultSet.getString(6))
                             .build());
                 }
@@ -57,7 +57,7 @@ public class DaoImpl implements Dao
             }
         }catch (SQLException e)
         {
-            throw new PacienteNotFoundException();
+            throw new RuntimeException(e);
         }
     }
 }

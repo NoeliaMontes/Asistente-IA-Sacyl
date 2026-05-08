@@ -28,7 +28,7 @@ public class DaoImpl implements Dao {
         final String SQL =
                 """
                             
-                        SELECT id,medico_id, 
+                        SELECT id,medico_id
                             FROM citas
                             WHERE paciente_id = ?
                             """;
@@ -54,7 +54,7 @@ public class DaoImpl implements Dao {
             }
         } catch (SQLException e)
         {
-            throw new PacienteNotFoundException();
+            throw new RuntimeException(e);
         }
     }
 
@@ -76,7 +76,7 @@ public class DaoImpl implements Dao {
             if(deleted==0) throw new CitaNotFoundException();
 
         } catch (SQLException e) {
-            throw new CitaNotFoundException();
+            throw new RuntimeException(e);
         }
 
     }

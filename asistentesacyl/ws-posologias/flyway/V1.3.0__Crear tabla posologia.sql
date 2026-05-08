@@ -5,7 +5,7 @@ CREATE TABLE POSOLOGIAS
     PACIENTE_ID             VARCHAR(13),
     MEDICINA_ID             VARCHAR(15),
     DOSIS                   NUMERIC(5),
-    FRECUENCIA             NUMERIC(5),
+    FRECUENCIA              NUMERIC(5),
     UNIDAD                  VARCHAR(15),
 
     CONSTRAINT "PK_POSOLOGIAS"                    PRIMARY KEY (ID),

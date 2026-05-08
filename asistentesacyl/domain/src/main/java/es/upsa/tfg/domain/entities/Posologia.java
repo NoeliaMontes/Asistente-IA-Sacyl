@@ -16,6 +16,6 @@ public class Posologia
     String id_paciente;
     String id_medicina;
     int dosis;
-    double frecuencia;
+    int frecuencia;
     String unidad;
 }

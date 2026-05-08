@@ -1,6 +1,8 @@
 package es.upsa.tfg.backend.rest.client;
 
+import es.upsa.tfg.domain.aggregator.PosologiaWMedicina;
 import es.upsa.tfg.domain.dtos.CitaDto;
+import es.upsa.tfg.domain.entities.Cita;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
@@ -8,14 +10,16 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-@RegisterRestClient(baseUri = "http://localhost:8080")
-public interface BackendRestClient
+import java.util.List;
+
+@RegisterRestClient(baseUri = "http://ngnix:80")
+public interface CitasRestClient
 {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/citas/{id}")
-    Response getCitas(@PathParam("id") String id);
+    List<Cita> getCitas(@PathParam("id") String id);
 
     @DELETE
     @Path("/citas/{id}")
@@ -26,11 +30,4 @@ public interface BackendRestClient
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/citas")
      Response postCita(CitaDto citaDto, @Context UriInfo uriInfo);
-
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/aggregator/posologia/{id}")
-    Response getPosologia(@PathParam("id") String id);
-
 }
