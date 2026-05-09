@@ -18,9 +18,9 @@ public class DeleteCitaByIdUseCaseImpl implements DeleteCitaByIdUseCase
     Repository repository;
 
     @Override
-    public void execute(String id)
+    public void execute(String id, String idPaciente)
     {
-        repository.deleteCita(id);
+        repository.deleteCita(id, idPaciente);
     }
 
 }

@@ -20,15 +20,20 @@ public class RepositoryImpl implements Repository
     Dao dao;
 
     @Override
-    public List<Cita> getById(String id)
-    {
+    public Optional<Cita> getById(String id) {
         return dao.getById(id);
     }
 
     @Override
-    public void deleteCita(String id)
+    public List<Cita> getByIdPaciente(String id)
     {
-        dao.deleteById(id);
+        return dao.getByIdPaciente(id);
+    }
+
+    @Override
+    public void deleteCita(String id, String idPaciente)
+    {
+        dao.deleteById(id, idPaciente);
     }
 
     @Override

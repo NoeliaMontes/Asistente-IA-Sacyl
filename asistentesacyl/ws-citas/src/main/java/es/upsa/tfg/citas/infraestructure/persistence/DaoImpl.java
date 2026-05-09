@@ -5,7 +5,6 @@ import es.upsa.tfg.citas.adapters.output.persistence.Dao;
 import es.upsa.tfg.domain.dtos.CitaDto;
 import es.upsa.tfg.domain.entities.Cita;
 import es.upsa.tfg.domain.exceptions.CitaNotFoundException;
-import es.upsa.tfg.domain.exceptions.PacienteNotFoundException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
@@ -22,13 +21,13 @@ public class DaoImpl implements Dao {
 
 
     @Override
-    public List<Cita> getById(String id) {
+    public List<Cita> getByIdPaciente(String id) {
 
         List<Cita> citas = new ArrayList<>();
         final String SQL =
                 """
                             
-                        SELECT id,medico_id
+                        SELECT ID,MEDICO_ID,LUGAR,MOTIVO, FECHA, HORA,TIPO
                             FROM citas
                             WHERE paciente_id = ?
                             """;
@@ -43,11 +42,16 @@ public class DaoImpl implements Dao {
             {
                 while (resultSet.next())
                 {
-                    citas.add(Cita.builder()
-                            .id(resultSet.getString(1))
-                            .id_medico(resultSet.getString(3))
-                            .id_paciente(id)
-                            .build());
+                    citas.add(  Cita.builder()
+                                    .id(resultSet.getString(1))
+                                    .id_medico(resultSet.getString(2))
+                                    .id_paciente(id)
+                                    .lugar(resultSet.getString(3))
+                                    .motivo(resultSet.getString(4))
+                                    .fecha(resultSet.getDate(5))
+                                    .hora(resultSet.getTime(6))
+                                    .tipo(resultSet.getString(7))
+                                    .build());
                 }
 
              return citas;
@@ -59,13 +63,13 @@ public class DaoImpl implements Dao {
     }
 
     @Override
-    public void deleteById(String id)
+    public void deleteById(String id, String idPaciente)
     {
         final String SQL =
                 """
                             
                 DELETE FROM citas
-                            WHERE id = ?
+                            WHERE id = ? AND paciente_id = ?
                             """;
         try (
                 Connection connection = dataSource.getConnection();
@@ -82,12 +86,50 @@ public class DaoImpl implements Dao {
     }
 
     @Override
+    public Optional<Cita> getById(String id) {
+
+        final String SQL =
+                """
+                            
+                        SELECT MEDICO_ID,PACIENTE_ID,LUGAR,MOTIVO, FECHA, HORA,TIPO
+                            FROM citas
+                            WHERE id = ?
+                            """;
+
+        try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection. prepareStatement(SQL);
+        )
+        {
+            preparedStatement.setString(1, id);
+            try (ResultSet resultSet = preparedStatement.executeQuery())
+            {
+                return (resultSet.next()) ? Optional.of(
+                        Cita.builder()
+                        .id(id)
+                        .id_medico(resultSet.getString(1))
+                        .id_paciente(resultSet.getString(2))
+                        .lugar(resultSet.getString(3))
+                        .motivo(resultSet.getString(4))
+                        .fecha(resultSet.getDate(5))
+                        .hora(resultSet.getTime(6))
+                        .tipo(resultSet.getString(7))
+                        .build()
+                ) : Optional.empty();
+
+            }
+        } catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public Cita post(CitaDto citaDto)
     {
         final String SQL =
                 """
-                            INSERT INTO CITAS (ID,      MEDICO_ID,PACIENTE_ID,LUGAR,MOTIVO,
-                FECHA, HORA,TIPO)
+                            INSERT INTO CITAS (ID,      MEDICO_ID,PACIENTE_ID,LUGAR,MOTIVO, FECHA, HORA,TIPO)
                              VALUES (nextval('seq_citas'),    ?,        ?,       ?,      ?,   ?,     ?,  ?),
                             """;
 
