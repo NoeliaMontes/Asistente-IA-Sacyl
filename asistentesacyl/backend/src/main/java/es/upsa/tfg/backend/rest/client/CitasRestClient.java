@@ -29,5 +29,5 @@ public interface CitasRestClient
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/citas")
-     Response postCita(CitaDto citaDto, @Context UriInfo uriInfo);
+     Response postCita(CitaDto citaDto);
 }

@@ -88,8 +88,9 @@ public class CitasResource {
     private URI createUri(UriInfo uriInfo, Cita cita)
     {
         return uriInfo.getBaseUriBuilder()
-                .path("/citas/{id}")
-                .resolveTemplate("id", cita.getId())
+                .path("/citas/{id}/{idCita}")
+                .resolveTemplate("id", cita.getId_paciente())
+                .resolveTemplate("idCita", cita.getId())
                 .build();
 
     }
