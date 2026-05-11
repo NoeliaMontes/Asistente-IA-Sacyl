@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Data
@@ -18,8 +20,8 @@ public class CitaDto
     String id_paciente;
     String lugar;
     String motivo;
-    Date fecha;
-    Time hora;
+    LocalDate fecha;
+    LocalTime hora;
     String tipo;
 }
 

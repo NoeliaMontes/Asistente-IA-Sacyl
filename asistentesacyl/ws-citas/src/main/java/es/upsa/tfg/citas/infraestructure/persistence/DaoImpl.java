@@ -10,6 +10,8 @@ import jakarta.inject.Inject;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -48,8 +50,8 @@ public class DaoImpl implements Dao {
                                     .id_paciente(id)
                                     .lugar(resultSet.getString(3))
                                     .motivo(resultSet.getString(4))
-                                    .fecha(resultSet.getDate(5))
-                                    .hora(resultSet.getTime(6))
+                                    .fecha(resultSet.getDate(5).toLocalDate())
+                                    .hora(resultSet.getTime(6).toLocalTime())
                                     .tipo(resultSet.getString(7))
                                     .build());
                 }
@@ -111,8 +113,8 @@ public class DaoImpl implements Dao {
                         .id_paciente(resultSet.getString(2))
                         .lugar(resultSet.getString(3))
                         .motivo(resultSet.getString(4))
-                        .fecha(resultSet.getDate(5))
-                        .hora(resultSet.getTime(6))
+                        .fecha(resultSet.getDate(5).toLocalDate())
+                        .hora(resultSet.getTime(6).toLocalTime())
                         .tipo(resultSet.getString(7))
                         .build()
                 ) : Optional.empty();
@@ -144,7 +146,8 @@ public class DaoImpl implements Dao {
             preparedStatement.setString(3, citaDto.getLugar());
             preparedStatement.setString(4, citaDto.getMotivo());
             preparedStatement.setDate(5, Date.valueOf(String.valueOf(citaDto.getFecha())));
-            preparedStatement.setTime(6, citaDto.getHora()); preparedStatement.setString(7, citaDto.getTipo());
+            preparedStatement.setTime(6, Time.valueOf(citaDto.getHora()));
+            preparedStatement.setString(7, citaDto.getTipo());
 
             preparedStatement.executeUpdate();
 
@@ -171,5 +174,49 @@ public class DaoImpl implements Dao {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Override
+    public Optional<Cita> getByTime(LocalDate fecha, LocalTime hora)
+    {
+        LocalTime horaA= hora.minusMinutes(30);
+        LocalTime horaD= hora.plusMinutes(30);
+
+        final String SQL =
+                """
+                            
+                        SELECT id,MEDICO_ID,PACIENTE_ID,LUGAR,MOTIVO,TIPO
+                            FROM citas
+                            WHERE fecha = ? AND hora BETWEEN ? AND ?
+                            """;
+
+        try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection. prepareStatement(SQL);
+        )
+        {
+            preparedStatement.setDate(1, Date.valueOf(fecha));
+            preparedStatement.setTime(2, Time.valueOf(horaA));
+            preparedStatement.setTime(3, Time.valueOf(horaD));
+            try (ResultSet resultSet = preparedStatement.executeQuery())
+            {
+                return (resultSet.next()) ? Optional.of(
+                        Cita.builder()
+                        .id(resultSet.getString(1))
+                        .id_medico(resultSet.getString(2))
+                        .id_paciente(resultSet.getString(3))
+                        .lugar(resultSet.getString(4))
+                        .motivo(resultSet.getString(5))
+                        .fecha(fecha)
+                        .hora(hora)
+                        .tipo(resultSet.getString(6))
+                        .build()
+                ) : Optional.empty();
+
+            }
+        } catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
     }
 }
