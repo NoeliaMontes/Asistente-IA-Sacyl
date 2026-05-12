@@ -1,11 +1,11 @@
 package es.upsa.tfg.medicos.application.usecases;
 
-import es.upsa.tfg.domain.entities.Medicamento;
 import es.upsa.tfg.domain.entities.Medico;
 
+import java.util.List;
 import java.util.Optional;
 
-public interface GetMedicoByIdUseCase
+public interface GetMedicosUseCase
 {
-    Optional<Medico> execute(String id);
+    List<Medico> execute();
 }

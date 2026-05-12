@@ -7,6 +7,7 @@ import es.upsa.tfg.medicos.application.repository.Repository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -17,8 +18,8 @@ public class RepositoryImpl implements Repository
     Dao dao;
 
     @Override
-    public Optional<Medico> getById(String id)
+    public List<Medico> getMedicos()
     {
-        return dao.getById(id);
+        return dao.getMedicos();
     }
 }

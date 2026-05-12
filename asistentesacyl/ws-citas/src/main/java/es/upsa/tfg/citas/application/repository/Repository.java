@@ -5,8 +5,6 @@ package es.upsa.tfg.citas.application.repository;
 import es.upsa.tfg.domain.dtos.CitaDto;
 import es.upsa.tfg.domain.entities.Cita;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -22,5 +20,7 @@ public interface Repository
 
     Cita postCita(CitaDto citaDto);
 
-    Optional<Cita> getByDate(LocalDate fecha, LocalTime hora);
+    List<Cita> getByDate(LocalDate fecha, LocalTime hora);
+
+    List<Cita> getCitas();
 }

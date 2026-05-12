@@ -9,8 +9,6 @@ import es.upsa.tfg.domain.entities.Cita;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -47,8 +45,13 @@ public class RepositoryImpl implements Repository
     }
 
     @Override
-    public Optional<Cita> getByDate(LocalDate fecha, LocalTime hora)
+    public List<Cita> getByDate(LocalDate fecha, LocalTime hora)
     {
         return dao.getByTime(fecha,hora);
+    }
+
+    @Override
+    public List<Cita> getCitas() {
+        return dao.getCitas();
     }
 }

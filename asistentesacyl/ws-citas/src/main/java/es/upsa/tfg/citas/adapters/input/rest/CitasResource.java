@@ -1,9 +1,6 @@
 package es.upsa.tfg.citas.adapters.input.rest;
 
-import es.upsa.tfg.citas.application.usecases.GetCitaByIdUseCase;
-import es.upsa.tfg.citas.application.usecases.GetCitasByPacienteIdUseCase;
-import es.upsa.tfg.citas.application.usecases.DeleteCitaByIdUseCase;
-import es.upsa.tfg.citas.application.usecases.PostCitaUseCase;
+import es.upsa.tfg.citas.application.usecases.*;
 import es.upsa.tfg.domain.dtos.CitaDto;
 import es.upsa.tfg.domain.entities.Cita;
 import es.upsa.tfg.domain.exceptions.PacienteNotFoundException;
@@ -15,11 +12,16 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
 
 import java.net.URI;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
 @Path("/citas")
 public class CitasResource {
+
+    @Inject
+    GetCitaByDateTimeUseCase getCitas;
 
     @Inject
     GetCitasByPacienteIdUseCase getCitasByPacienteId;
@@ -30,8 +32,17 @@ public class CitasResource {
     @Inject
     PostCitaUseCase postCitaUseCase;
 
-    @Inject
-    GetCitaByIdUseCase getCitaById;
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{fecha}/{hora}")
+    public Response getCitas(@PathParam("fecha") LocalDate fecha, @PathParam("hora") LocalTime hora)
+    {
+        List<Cita> listaCitas = getCitas.execute(fecha, hora);
+        return Response.ok().entity(listaCitas).build();
+    }
+
+
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -40,30 +51,6 @@ public class CitasResource {
     {
         List<Cita> listaCitas = getCitasByPacienteId.execute(id);
         return Response.ok().entity(listaCitas).build();
-    }
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{id}/{idCita}")
-    public Response getCitasById(@PathParam("id") String id,@PathParam("idCita") String idCita)
-    {
-        Optional<Cita> citaopt = getCitaById.execute(idCita);
-        if(citaopt.isPresent())
-        {
-            Cita  cita = citaopt.get();
-            if(cita.getId_paciente().equals(id) )
-            {
-                return Response.ok().entity(cita).build();
-            }
-            else
-            {
-                throw new PacienteNotFoundException();
-            }
-        }
-        else
-        {
-            throw new PacienteNotFoundException();
-        }
     }
 
 

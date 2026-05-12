@@ -5,12 +5,12 @@ import es.upsa.tfg.domain.exceptions.MedicoNotFoundException;
 import es.upsa.tfg.medicos.adapters.output.persistence.Dao;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -21,34 +21,31 @@ public class DaoImpl implements Dao
 
 
     @Override
-    public Optional<Medico> getById(String id)
+    public List<Medico> getMedicos()
     {
+        List<Medico> medicos = new ArrayList<>();
         final String SQL =
                             """
-                            SELECT nombre, tipo
+                            SELECT din, nombre
                             FROM medicos
-                            WHERE din = ?
                             """;
 
-        try (
-                Connection connection = dataSource.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            )
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(SQL);
+        )
         {
-            preparedStatement.setString(1, id);
-            try (ResultSet resultSet = preparedStatement.executeQuery())
+            while (resultSet.next())
             {
-                return (resultSet.next()) ? Optional.of(
-                    Medico.builder()
-                            .id(id)
-                            .nombre(resultSet.getString(1))
-                            .tipo(resultSet.getString(2))
-                            .build()
-                ) : Optional.empty();
+                medicos.add(Medico.builder()
+                        .id(resultSet.getString(1))
+                        .nombre(resultSet.getString(2))
+                        .build());
             }
+            return medicos;
         } catch (SQLException e)
         {
-            throw new MedicoNotFoundException();
+            throw new RuntimeException(e);
         }
     }
 }

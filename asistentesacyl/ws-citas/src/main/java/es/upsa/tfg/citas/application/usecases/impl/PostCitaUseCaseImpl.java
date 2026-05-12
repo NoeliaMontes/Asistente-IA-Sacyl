@@ -27,13 +27,14 @@ public class PostCitaUseCaseImpl implements PostCitaUseCase
     @Override
     public Cita execute(CitaDto citaDto)
     {
-        Optional<Cita> citaExiste = getBydate.execute(citaDto.getFecha(), citaDto.getHora());
-        if(citaExiste.isPresent())
+        List<Cita> citasPosibles = getBydate.execute(citaDto.getFecha(), citaDto.getHora());
+        for (Cita cita : citasPosibles)
         {
-            throw new CitaExistException();
+            if (cita.getId_paciente().equals(citaDto.getId_paciente())) {
+                throw new CitaExistException();
+            }
         }
-        else {
             return repository.postCita(citaDto);
-        }
+
     }
 }

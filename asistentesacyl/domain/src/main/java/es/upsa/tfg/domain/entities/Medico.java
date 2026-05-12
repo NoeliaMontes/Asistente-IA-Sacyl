@@ -13,5 +13,4 @@ public class Medico
 {
     String id;
     String nombre;
-    String tipo;
 }

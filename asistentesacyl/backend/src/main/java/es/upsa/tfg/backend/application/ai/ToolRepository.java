@@ -7,12 +7,14 @@ import es.upsa.tfg.backend.rest.client.CitasRestClient;
 import es.upsa.tfg.domain.aggregator.PosologiaWMedicina;
 import es.upsa.tfg.domain.dtos.CitaDto;
 import es.upsa.tfg.domain.entities.Cita;
+import es.upsa.tfg.domain.entities.Medico;
 import es.upsa.tfg.domain.enums.Lugar;
 import es.upsa.tfg.domain.enums.Tipo;
 import es.upsa.tfg.domain.exceptions.CitaNotFoundException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.time.LocalDate;
@@ -49,46 +51,39 @@ public class ToolRepository
         }
     }
 
-    @Tool("Consultar una cita cuando el usuario tiene el id de la cita")
+    @Tool("Consultar citas por tipo de consulta/medico")
     @Transactional
-    public void getCitaById(String idCita)
+    public void getCitasByType(String tipo)
     {
 
     }
-
-    /*
-    @Tool("Consultar una cita cuando el usuario solo tiene fecha y hora de la cita")
-    @Transactional
-    public void getCitaByTime(LocalDate fecha,LocalTime hora)
-    {
-
-    }
-     */
 
 
     @Tool("Pedir o sacar una cita")
     @Transactional
-    public void postCitas(Lugar lugar, Tipo tipo, String motivo, LocalDate fecha, LocalTime hora)
+    public String postCitas(Lugar lugar, Tipo tipo, String motivo, LocalDate fecha, LocalTime hora)
     {
-        CitaDto nuevaCita = CitaDto.builder()
-                .id_medico("")
-                .id_paciente(context.getUserId())
-                .lugar(lugar.toString())
-                .tipo(tipo.toString())
-                .motivo(motivo)
-                .fecha(fecha)
-                .hora(hora)
-                .build();
-
         try {
+            Medico medico = aggregator.getMedicosDisponibles(fecha, hora);
+            CitaDto nuevaCita = CitaDto.builder()
+                    .id_medico(medico.getId())
+                    .id_paciente(context.getUserId())
+                    .lugar(lugar.toString())
+                    .tipo(tipo.toString())
+                    .motivo(motivo)
+                    .fecha(fecha)
+                    .hora(hora)
+                    .build();
+
             citas.postCita(nuevaCita);
-        }catch (RuntimeException exception)
+            return " La cita ha sido confirmada";
+        }
+        catch (RuntimeException exception)
         {
-            throw new RuntimeException(exception);
+            return " ERROR: No se pudo insertar la cita debido a: " + exception;
         }
 
     }
-
 
     @Tool("Ver mis citas")
     @Transactional

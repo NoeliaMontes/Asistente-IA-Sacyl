@@ -1,22 +1,22 @@
 package es.upsa.tfg.medicos.application.usecases.impl;
 
-import es.upsa.tfg.domain.entities.Medicamento;
 import es.upsa.tfg.domain.entities.Medico;
 import es.upsa.tfg.medicos.application.repository.Repository;
-import es.upsa.tfg.medicos.application.usecases.GetMedicoByIdUseCase;
+import es.upsa.tfg.medicos.application.usecases.GetMedicosUseCase;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-public class GetMedicoByIdUseCaseImpl implements GetMedicoByIdUseCase
+public class GetMedicosUseCaseImpl implements GetMedicosUseCase
 {
     @Inject
     Repository repository;
 
     @Override
-    public Optional<Medico> execute(String id) {
-        return repository.getById(id);
+    public List<Medico> execute() {
+        return repository.getMedicos();
     }
 }

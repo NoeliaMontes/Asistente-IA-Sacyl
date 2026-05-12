@@ -177,8 +177,9 @@ public class DaoImpl implements Dao {
     }
 
     @Override
-    public Optional<Cita> getByTime(LocalDate fecha, LocalTime hora)
+    public List<Cita> getByTime(LocalDate fecha, LocalTime hora)
     {
+        List<Cita> citas = new ArrayList<>();
         LocalTime horaA= hora.minusMinutes(30);
         LocalTime horaD= hora.plusMinutes(30);
 
@@ -200,19 +201,59 @@ public class DaoImpl implements Dao {
             preparedStatement.setTime(3, Time.valueOf(horaD));
             try (ResultSet resultSet = preparedStatement.executeQuery())
             {
-                return (resultSet.next()) ? Optional.of(
-                        Cita.builder()
-                        .id(resultSet.getString(1))
-                        .id_medico(resultSet.getString(2))
-                        .id_paciente(resultSet.getString(3))
-                        .lugar(resultSet.getString(4))
-                        .motivo(resultSet.getString(5))
-                        .fecha(fecha)
-                        .hora(hora)
-                        .tipo(resultSet.getString(6))
-                        .build()
-                ) : Optional.empty();
+                while (resultSet.next())
+                {
+                    citas.add(  Cita.builder()
+                            .id(resultSet.getString(1))
+                            .id_medico(resultSet.getString(2))
+                            .id_paciente(resultSet.getString(3))
+                            .lugar(resultSet.getString(4))
+                            .motivo(resultSet.getString(5))
+                            .fecha(fecha)
+                            .hora(hora)
+                            .tipo(resultSet.getString(6))
+                            .build());
+                }
+                return citas;
+            }
+        } catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
 
+    @Override
+    public List<Cita> getCitas() {
+        List<Cita> citas = new ArrayList<>();
+        final String SQL =
+                """
+                            
+                        SELECT ID,MEDICO_ID,PACIENTE_ID,LUGAR,MOTIVO, FECHA, HORA,TIPO
+                            FROM citas
+                            """;
+
+        try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement preparedStatement = connection. prepareStatement(SQL);
+        )
+        {
+            try (ResultSet resultSet = preparedStatement.executeQuery())
+            {
+                while (resultSet.next())
+                {
+                    citas.add(  Cita.builder()
+                            .id(resultSet.getString(1))
+                            .id_medico(resultSet.getString(2))
+                            .id_paciente(resultSet.getString(3))
+                            .lugar(resultSet.getString(4))
+                            .motivo(resultSet.getString(5))
+                            .fecha(resultSet.getDate(6).toLocalDate())
+                            .hora(resultSet.getTime(7).toLocalTime())
+                            .tipo(resultSet.getString(8))
+                            .build());
+                }
+
+                return citas;
             }
         } catch (SQLException e)
         {
