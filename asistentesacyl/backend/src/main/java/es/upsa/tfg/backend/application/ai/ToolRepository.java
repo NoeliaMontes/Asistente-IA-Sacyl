@@ -9,6 +9,7 @@ import es.upsa.tfg.domain.dtos.CitaDto;
 import es.upsa.tfg.domain.entities.Cita;
 import es.upsa.tfg.domain.enums.Lugar;
 import es.upsa.tfg.domain.enums.Tipo;
+import es.upsa.tfg.domain.exceptions.CitaNotFoundException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -34,9 +35,18 @@ public class ToolRepository
 
     @Tool("Cancelar una cita cuando el usuario tiene el id de la cita")
     @Transactional
-    public void cancelCitaById(String idCita)
+    public String cancelCitaById(String idCita)
     {
-
+        try {
+            citas.deleteCitaById(context.getUserId(),idCita);
+            return "Cita eliminada con éxito";
+        }catch (CitaNotFoundException exception)
+        {
+            return """
+               ERROR:
+               La cita que están intentando anular no existe o no pertenece a este paciente
+               """;
+        }
     }
 
     @Tool("Consultar una cita cuando el usuario tiene el id de la cita")

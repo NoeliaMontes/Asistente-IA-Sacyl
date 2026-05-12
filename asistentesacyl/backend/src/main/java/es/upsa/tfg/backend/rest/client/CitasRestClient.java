@@ -22,8 +22,8 @@ public interface CitasRestClient
     List<Cita> getCitas(@PathParam("id") String id);
 
     @DELETE
-    @Path("/citas/{id}")
-     Response deleteCitaById(@PathParam("id") String id);
+    @Path("/citas/{id}/{idCitas}")
+     void deleteCitaById(@PathParam("id") String id,@PathParam("idCitas") String idCitas);
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
