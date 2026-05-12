@@ -33,15 +33,6 @@ public class CitasResource {
     PostCitaUseCase postCitaUseCase;
 
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{fecha}/{hora}")
-    public Response getCitas(@PathParam("fecha") LocalDate fecha, @PathParam("hora") LocalTime hora)
-    {
-        List<Cita> listaCitas = getCitas.execute(fecha, hora);
-        return Response.ok().entity(listaCitas).build();
-    }
-
 
 
     @GET
@@ -52,6 +43,16 @@ public class CitasResource {
         List<Cita> listaCitas = getCitasByPacienteId.execute(id);
         return Response.ok().entity(listaCitas).build();
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{fecha}/{hora}")
+    public Response getCitas(@PathParam("fecha") LocalDate fecha, @PathParam("hora") LocalTime hora)
+    {
+        List<Cita> listaCitas = getCitas.execute(fecha, hora);
+        return Response.ok().entity(listaCitas).build();
+    }
+
 
 
     @POST

@@ -53,8 +53,10 @@ public class ToolRepository
 
     @Tool("Consultar citas por tipo de consulta/medico")
     @Transactional
-    public void getCitasByType(String tipo)
+    public List<Cita> getCitasByType(String tipo)
     {
+        List<Cita> citasPaciente = citas.getCitas(context.getUserId());
+        return citasPaciente.stream().filter(cita -> cita.getTipo().equals(tipo)).toList();
 
     }
 
