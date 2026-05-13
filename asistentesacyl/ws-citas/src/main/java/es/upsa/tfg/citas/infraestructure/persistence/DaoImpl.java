@@ -5,6 +5,7 @@ import es.upsa.tfg.citas.adapters.output.persistence.Dao;
 import es.upsa.tfg.domain.dtos.CitaDto;
 import es.upsa.tfg.domain.entities.Cita;
 import es.upsa.tfg.domain.exceptions.CitaNotFoundException;
+import es.upsa.tfg.domain.exceptions.SacylException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
@@ -60,7 +61,7 @@ public class DaoImpl implements Dao {
             }
         } catch (SQLException e)
         {
-            throw new RuntimeException(e);
+            throw new SacylException(e);
         }
     }
 
@@ -78,11 +79,12 @@ public class DaoImpl implements Dao {
                 PreparedStatement preparedStatement = connection.prepareStatement(SQL)
         )
         { preparedStatement.setString(1, id);
+          preparedStatement.setString(2, idPaciente);
             int deleted = preparedStatement.executeUpdate();
             if(deleted==0) throw new CitaNotFoundException();
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new SacylException(e);
         }
 
     }
@@ -122,7 +124,7 @@ public class DaoImpl implements Dao {
             }
         } catch (SQLException e)
         {
-            throw new RuntimeException(e);
+            throw new SacylException(e);
         }
     }
 
@@ -132,7 +134,7 @@ public class DaoImpl implements Dao {
         final String SQL =
                 """
                             INSERT INTO CITAS (ID,      MEDICO_ID,PACIENTE_ID,LUGAR,MOTIVO, FECHA, HORA,TIPO)
-                             VALUES (nextval('seq_citas'),    ?,        ?,       ?,      ?,   ?,     ?,  ?),
+                             VALUES (nextval('seq_citas'),    ?,        ?,       ?,      ?,   ?,     ?,  ?)
                             """;
 
         final String[] fields= {"id"};
@@ -141,7 +143,7 @@ public class DaoImpl implements Dao {
                 PreparedStatement preparedStatement = connection.prepareStatement(SQL, fields);
         )
         {
-            preparedStatement.setString(1, citaDto.getId_medico());
+            preparedStatement.setInt(1, Integer.parseInt(citaDto.getId_medico()));
             preparedStatement.setString(2, citaDto.getId_paciente());
             preparedStatement.setString(3, citaDto.getLugar());
             preparedStatement.setString(4, citaDto.getMotivo());
@@ -171,7 +173,7 @@ public class DaoImpl implements Dao {
 
         } catch (SQLException e)
         {
-            throw new RuntimeException(e);
+            throw new SacylException(e);
         }
 
     }
@@ -218,7 +220,7 @@ public class DaoImpl implements Dao {
             }
         } catch (SQLException e)
         {
-            throw new RuntimeException(e);
+            throw new SacylException(e);
         }
     }
 
@@ -257,7 +259,7 @@ public class DaoImpl implements Dao {
             }
         } catch (SQLException e)
         {
-            throw new RuntimeException(e);
+            throw new SacylException(e);
         }
     }
 }

@@ -6,7 +6,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import java.text.ParseException;
 
-@RegisterRestClient(baseUri = "http://localhost:8084")
+@RegisterRestClient(baseUri = "http://ngnix")
 @Path("/backend")
 public interface BackendRestClient
 {

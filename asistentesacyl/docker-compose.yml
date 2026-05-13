@@ -27,6 +27,7 @@ services:
       FLYWAY_PASSWORD: manager
       FLYWAY_URL: jdbc:postgresql://database:5432/upsa
       FLYWAY_LOCATIONS: filesystem:/flyway/locations/ws-medicamentos,filesystem:/flyway/locations/ws-pacientes,filesystem:/flyway/locations/ws-medicos,filesystem:/flyway/locations/ws-citas,filesystem:/flyway/locations/ws-posologias
+      FLYWAY_BASELINE_ON_MIGRATE: "true"
     volumes:
       - ./ws-medicamentos/flyway:/flyway/locations/ws-medicamentos
       - ./ws-pacientes/flyway:/flyway/locations/ws-pacientes
@@ -121,17 +122,30 @@ services:
       DATABASE_PASSWORD: manager
     volumes:
       - ./backend/docs:/deployments/docs
-    ports:
-      - 8084:8080
     depends_on:
       - aggregator
+
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on:
+      - backend
+
+  iniciosesion:
+    build:
+      context: ./iniciosesion
+      dockerfile: Dockerfile
+    depends_on:
+      - frontend
+      - security
 
   security:
     build:
       context: ./security
       dockerfile: Dockerfile
-    ports:
-      - 8083:8080
 
 
   ngnix:
@@ -141,7 +155,9 @@ services:
     ports:
       - 80:80
     depends_on:
-      - aggregator
+      - frontend
+      - backend
+      - iniciosesion
 
 volumes:
   vol_database: {}

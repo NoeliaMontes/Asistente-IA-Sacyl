@@ -1,6 +1,6 @@
 package es.upsa.tfg.domain.exceptions;
 
-public class MedicamentoNotFoundException extends RuntimeException
+public class MedicamentoNotFoundException extends SacylException
 {
     //Esta excepción devuelve el mensaje indicado abajo como respuesta.
     public MedicamentoNotFoundException()

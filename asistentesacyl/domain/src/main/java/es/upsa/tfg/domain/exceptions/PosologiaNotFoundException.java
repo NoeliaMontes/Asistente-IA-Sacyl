@@ -1,6 +1,6 @@
 package es.upsa.tfg.domain.exceptions;
 
-public class PosologiaNotFoundException extends RuntimeException
+public class PosologiaNotFoundException extends SacylException
 {
     public PosologiaNotFoundException()
     {

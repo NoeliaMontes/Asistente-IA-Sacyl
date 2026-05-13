@@ -2,14 +2,18 @@ package es.upsa.tfg.adapters.input.rest;
 
 import es.upsa.tfg.application.repository.Repository;
 import io.quarkus.websockets.next.*;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 import jakarta.ws.rs.PathParam;
 
+import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 @WebSocket(path = "/chat/{token}")
-@SessionScoped
+@Singleton
 public class ChatWebSocket {
 
 
@@ -19,28 +23,24 @@ public class ChatWebSocket {
     @Inject
     Repository repository;
 
-    @Inject
-    WebSocketConnection connection;
-
-    String token;
 
     @OnOpen(broadcast = true)
     public ChatMessage onOpen(WebSocketConnection connection) {
-        this.token = connection.pathParam("token");
         return new ChatMessage(MessageType.USER_JOINED, "Usuario", null);
     }
 
     @OnClose
-    public void onClose() {
+    public void onClose(WebSocketConnection connection) {
         ChatMessage departure = new ChatMessage(MessageType.USER_LEFT,"Usuario", null);
         connection.broadcast().sendTextAndAwait(departure);
     }
 
 
     @OnTextMessage
-    ChatMessage process(ChatMessage m)
+    ChatMessage process(WebSocketConnection connection, ChatMessage m)
     {
         connection.broadcast().sendTextAndAwait(m);
+        String token = connection.pathParam("token");
         String answer = repository.respuesta(m.message,token);
         ChatMessage messagesys = new ChatMessage(MessageType.CHAT_MESSAGE, "System", answer);
         connection.broadcast().sendTextAndAwait(messagesys);

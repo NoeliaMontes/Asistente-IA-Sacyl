@@ -11,6 +11,7 @@ import es.upsa.tfg.domain.entities.Medico;
 import es.upsa.tfg.domain.enums.Lugar;
 import es.upsa.tfg.domain.enums.Tipo;
 import es.upsa.tfg.domain.exceptions.CitaNotFoundException;
+import es.upsa.tfg.domain.exceptions.SacylException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -20,6 +21,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Locale;
 
 @ApplicationScoped
 public class ToolRepository
@@ -63,26 +65,71 @@ public class ToolRepository
 
     @Tool("Pedir o sacar una cita")
     @Transactional
-    public String postCitas(Lugar lugar, Tipo tipo, String motivo, LocalDate fecha, LocalTime hora)
+    public String postCitas(String lugar, String tipo, String motivo, String fecha, String hora)
     {
+        LocalDate fechaCita = LocalDate.parse(fecha);
+        LocalTime horaCita = LocalTime.parse(hora);
+        Lugar place;
+        if(lugar.contains("virtual") || lugar.contains("no presencial") || lugar.contains("telefonica"))
+        {
+             place = Lugar.NO_PRESENCIAL;
+        }
+        else
+        {
+             place = Lugar.PRESENCIAL;
+        }
+
+        Tipo type;
+        switch (tipo.toLowerCase())
+        {
+            case "matrona" -> {
+                type = Tipo.MATRONA;
+            }
+
+            case "medicina" -> {
+                type = Tipo.MEDICINA;
+            }
+
+            case "enfermeria" -> {
+                type = Tipo.ENFERMERIA;
+            }
+
+            case "analisis" -> {
+                type = Tipo.ANALISIS;
+            }
+
+            case "trabajador social" -> {
+                type = Tipo.TRABAJADOR_SOCIAL;
+            }
+            case "vacunas adultos" -> {
+                type = Tipo.VACUNAS_ADULTOS;
+            }
+            case "vacunas pediatria" -> {
+                type = Tipo.VACUNAS_PEDIATRIA;
+            }
+
+            default -> {
+                return "No se permite este tipo de cita";
+            }
+        }
         try {
-            Medico medico = aggregator.getMedicosDisponibles(fecha, hora);
+            Medico medico = aggregator.getMedicosDisponibles(fechaCita, horaCita);
             CitaDto nuevaCita = CitaDto.builder()
                     .id_medico(medico.getId())
                     .id_paciente(context.getUserId())
-                    .lugar(lugar.toString())
-                    .tipo(tipo.toString())
+                    .lugar(place.toString())
+                    .tipo(type.toString())
                     .motivo(motivo)
-                    .fecha(fecha)
-                    .hora(hora)
+                    .fecha(fechaCita)
+                    .hora(horaCita)
                     .build();
 
             citas.postCita(nuevaCita);
-            return " La cita ha sido confirmada";
+            return "La cita ha sido confirmada";
         }
-        catch (RuntimeException exception)
+        catch (SacylException exception)
         {
-            return " ERROR: No se pudo insertar la cita debido a: " + exception;
+            return "ERROR: No se pudo insertar la cita debido a: " + exception.getMessage();
         }
 
     }

@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+@Path("/aggregator")
 public class AggregatorResource {
 
     @Inject
@@ -36,9 +37,11 @@ public class AggregatorResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/medicos/{fecha}/{hora}")
-    public Response getMedicosDisponibles(@PathParam("fecha") LocalDate fecha, @PathParam("hora") LocalTime hora)
+    public Response getMedicosDisponibles(@PathParam("fecha") String fecha, @PathParam("hora") String hora)
     {
-        Medico medicoDisponible = getMedicosDisponibles.execute(fecha, hora);
+        LocalDate date = LocalDate.parse(fecha);
+        LocalTime time = LocalTime.parse(hora);
+        Medico medicoDisponible = getMedicosDisponibles.execute(date, time);
         return Response.ok().entity(medicoDisponible).build();
     }
 }

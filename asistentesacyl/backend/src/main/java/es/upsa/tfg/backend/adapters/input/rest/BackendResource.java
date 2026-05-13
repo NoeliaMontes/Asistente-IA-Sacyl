@@ -10,6 +10,8 @@ import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.jwt.Claims;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
+import java.time.LocalDateTime;
+
 @Path("/backend")
 public class BackendResource {
 
@@ -33,7 +35,7 @@ public class BackendResource {
         String userID = jwt.getClaim(Claims.sub.name());
         context.setUserId(userID);
 
-        return assistant.askQuestion(question);
+        return assistant.askQuestion(LocalDateTime.now().toString(), question);
     }
 
 }

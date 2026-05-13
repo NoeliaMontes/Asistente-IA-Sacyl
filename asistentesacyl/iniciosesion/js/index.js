@@ -5,7 +5,7 @@ async function iniciarSesion() {
     try
     {
         const token = await verify(cipaut,apellido);
-        window.location.href = 'http://localhost:8082/index.html?token=' + token;
+        window.location.href = 'http://localhost/frontend/index.html?token=' + token;
     }
     catch (error)
     {
@@ -17,7 +17,7 @@ async function iniciarSesion() {
 async function verify(cipaut, apellido)
     {
         try {
-            const response =await fetch("http://127.0.0.1:8083/secure", {
+            const response =await fetch("http://localhost/security/secure", {
                 method: "POST",
                 mode: "cors",
                 headers: {

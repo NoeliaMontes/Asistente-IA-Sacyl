@@ -1,6 +1,6 @@
 package es.upsa.tfg.domain.exceptions;
 
-public class CitaNotFoundException extends RuntimeException
+public class CitaNotFoundException extends SacylException
 {
     public CitaNotFoundException()
     {
