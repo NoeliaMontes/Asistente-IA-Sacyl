@@ -40,10 +40,12 @@ public class DocumentRetriver implements RetrievalAugmentor
         //Generamos el embedding store o lo obtenemos del caché
         EmbeddingStoreContentRetriever contentRetriever = cache.get(userId, model, store);
 
-
+        //Creamos el augmentor con el content retriver adecuado
         RetrievalAugmentor augmentor = DefaultRetrievalAugmentor.builder()
                 .contentRetriever(contentRetriever)
                 .build();
+
+        //Devolvemos el resultado de ejecutar el augmentor, es decir los documentos encontrados
         return augmentor.augment(augmentationRequest);
     }
 }

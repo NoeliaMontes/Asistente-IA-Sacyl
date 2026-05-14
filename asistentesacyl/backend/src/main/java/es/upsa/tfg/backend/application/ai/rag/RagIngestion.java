@@ -35,16 +35,12 @@ public class RagIngestion {
     @PostConstruct
     void loadDocument() throws Exception {
 
-        //Documentos NO-PDF (md, txt, etc.)
-        //Valorar luego
-        //List<Document> documents =
-        //        FileSystemDocumentLoader.loadDocumentsRecursively("docs");
-
-        //PDFs
+        //Leemos los documentos en formato pdf
         List<Document> pdfDocuments = Files.walk(Path.of("docs"))
                 .filter(path -> path.toString().toLowerCase().endsWith(".pdf"))
                 .map(path -> {
                     try {
+                        //Obtenemos del path el nombre de la carpeta que es el id del usuario
                         Path relative = Path.of("docs").relativize(path);
                         String userId = relative.getName(0).toString();
                         Document document = parseAsDocument(path);
@@ -57,11 +53,8 @@ public class RagIngestion {
                 })
                 .toList();
 
-        // Unir
-        //documents = new java.util.ArrayList<>(documents);
+        //Union
         pdfDocuments = new java.util.ArrayList<>(pdfDocuments);
-        //documents.addAll(pdfDocuments);
-
 
         //Splitter
         DocumentSplitter splitter = recursive(500, 0);
@@ -72,12 +65,11 @@ public class RagIngestion {
                 .embeddingModel(embeddingModel)
                 .documentSplitter(splitter)
                 .build();
-
-        //ingestor.ingest(documents);
         ingestor.ingest(pdfDocuments);
     }
 
 
+    //Parseamos de pdf a documento para que lo pueda leer sin problema
     private Document parseAsDocument(Path pdfPath) throws IOException {
         try (PDDocument pdf = Loader.loadPDF(pdfPath.toFile())) {
             PDFTextStripper stripper = new PDFTextStripper();

@@ -27,9 +27,11 @@ public class PostCitaUseCaseImpl implements PostCitaUseCase
     @Override
     public Cita execute(CitaDto citaDto)
     {
+        //Verificas las citas en ese fragmento de tiempo
         List<Cita> citasPosibles = getBydate.execute(citaDto.getFecha(), citaDto.getHora());
         for (Cita cita : citasPosibles)
         {
+            //Si el paciente ya tiene una cita en esa fecha y hora lanza una excepción
             if (cita.getId_paciente().equals(citaDto.getId_paciente())) {
                 throw new CitaExistException();
             }

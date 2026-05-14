@@ -16,14 +16,15 @@ public class BackendDaoImpl implements BackendDao
     BackendRestClient restClient;
 
 
+    //Métoodo para obtener respuesta del backend
     @Override
     public String respuesta(String question,String token)
     {
         try {
             return restClient.askQuestion(token,question);
         } catch (Exception e) {
-            System.out.println(e);
-            return null;
+            //En caso de excepción enviamos el mensaje de la excepción como respuesta
+            return e.getMessage();
         }
 
     }

@@ -12,15 +12,19 @@ import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import java.time.LocalDateTime;
 
+//A través de esta clase el frontend manda peticiones
 @Path("/backend")
 public class BackendResource {
 
+    //Inyectamos el asistenteIA
     @Inject
     DocumentationAsistant assistant;
 
+    //Inyectamos el token de seguridad parser
     @Inject
     JWTParser parser;
 
+    //Inyectamos el UserContext para tener acceso al idUsuario
     @Inject
     UserContext context;
 
@@ -31,11 +35,15 @@ public class BackendResource {
     @POST
     public String askQuestion(String question, @PathParam("token") String token) throws ParseException
     {
+        //Obtenemos los parámetros del token pasado en la url
         JsonWebToken jwt = parser.parse(token);
         String userID = jwt.getClaim(Claims.sub.name());
+        //Guardamos el userID en UserContext
         context.setUserId(userID);
 
-        return assistant.askQuestion(LocalDateTime.now().toString(), question);
+        //Devolvemos la respuesta de realizar la pregunta al asistente
+        //A parte de la pregunta también proporcionamos la fecha actual al asistente
+        return assistant.askQuestion(userID,LocalDateTime.now().toString(), question);
     }
 
 }

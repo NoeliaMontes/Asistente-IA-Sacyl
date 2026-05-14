@@ -27,6 +27,7 @@ services:
       FLYWAY_PASSWORD: manager
       FLYWAY_URL: jdbc:postgresql://database:5432/upsa
       FLYWAY_LOCATIONS: filesystem:/flyway/locations/ws-medicamentos,filesystem:/flyway/locations/ws-pacientes,filesystem:/flyway/locations/ws-medicos,filesystem:/flyway/locations/ws-citas,filesystem:/flyway/locations/ws-posologias
+     #Para asegurar que siempre migra
       FLYWAY_BASELINE_ON_MIGRATE: "true"
     volumes:
       - ./ws-medicamentos/flyway:/flyway/locations/ws-medicamentos

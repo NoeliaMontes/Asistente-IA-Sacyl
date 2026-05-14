@@ -15,6 +15,7 @@ public class PromptInjectionGuard implements InputGuardrail {
         this.service = service;
     }
 
+    //En caso de que intenten forzar el asistente se activa el GuardarailResult
     @Override
     public InputGuardrailResult validate(UserMessage userMessage) {
         double result = service.isInjection(userMessage.singleText());

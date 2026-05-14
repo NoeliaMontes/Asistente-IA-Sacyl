@@ -14,6 +14,7 @@ public class RepositoryImpl implements Repository
     @Inject
     BackendDao backend;
 
+    //Repository consulta el BackendDao para obtener respuesta
     @Override
     public String respuesta(String question, String token)    {
         return backend.respuesta(question,token);

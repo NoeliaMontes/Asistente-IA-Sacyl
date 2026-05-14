@@ -2,6 +2,7 @@ package es.upsa.tfg.backend.application.utils;
 
 import jakarta.enterprise.context.RequestScoped;
 
+//Clase usada para mantener el id del usuario en Backend siempre disponible
 @RequestScoped
 public class UserContext
 {

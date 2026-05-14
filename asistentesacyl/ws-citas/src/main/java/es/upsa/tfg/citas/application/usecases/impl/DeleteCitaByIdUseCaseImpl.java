@@ -22,6 +22,7 @@ public class DeleteCitaByIdUseCaseImpl implements DeleteCitaByIdUseCase
     @Override
     public void execute(String id, String idPaciente)
     {
+        //Revisa si la cita existe y si pertenece al paciente antes de eliminar
         Optional<Cita> cita = repository.getById(id);
         if(cita.isPresent())
         {

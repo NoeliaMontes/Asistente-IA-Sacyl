@@ -25,6 +25,7 @@ public class AggregatorResource {
     @Inject
     GetMedicosDisponiblesUseCase getMedicosDisponibles;
 
+    //Obtiene los medicamentos y su posología de un usuario concreto
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/posologias/{id}")
@@ -34,6 +35,7 @@ public class AggregatorResource {
         return Response.ok().entity(listaPosologias).build();
     }
 
+    //Obtiene los médicos disponibles en una fecha y hora concretos
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/medicos/{fecha}/{hora}")

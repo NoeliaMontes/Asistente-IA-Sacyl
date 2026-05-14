@@ -6,6 +6,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import java.text.ParseException;
 
+//Utilizamos el RestClient para mandar peticiones en este caso al backend
 @RegisterRestClient(baseUri = "http://ngnix")
 @Path("/backend")
 public interface BackendRestClient

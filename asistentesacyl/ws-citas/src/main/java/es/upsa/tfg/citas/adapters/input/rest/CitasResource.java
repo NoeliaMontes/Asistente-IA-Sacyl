@@ -33,8 +33,7 @@ public class CitasResource {
     PostCitaUseCase postCitaUseCase;
 
 
-
-
+    //Obtiene todas las citas de un paciente
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
@@ -44,6 +43,7 @@ public class CitasResource {
         return Response.ok().entity(listaCitas).build();
     }
 
+    //Obtiene todas las citas en una fecha y hora concretas
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{fecha}/{hora}")
@@ -54,7 +54,7 @@ public class CitasResource {
     }
 
 
-
+    //Inserta una cita
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -64,7 +64,7 @@ public class CitasResource {
         return Response.created(createUri(uriInfo, citaInsertada)).entity(citaInsertada).build();
     }
 
-
+    //Elimina una cita
     @DELETE
     @Path("/{id}/{idCita}")
     public Response deleteCitaById(@PathParam("id") String id, @PathParam("idCita") String idCita)
@@ -73,6 +73,7 @@ public class CitasResource {
         return Response.noContent().build();
     }
 
+    //Crea la URI de referencia de una cita
     private URI createUri(UriInfo uriInfo, Cita cita)
     {
         return uriInfo.getBaseUriBuilder()

@@ -23,6 +23,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Locale;
 
+//Esta clase muestra las herramientas para acceder a la información dinámica
 @ApplicationScoped
 public class ToolRepository
 {
@@ -37,6 +38,7 @@ public class ToolRepository
     @Inject
     UserContext context;
 
+    //Cancela una cita con el id de la Cita
     @Tool("Cancelar una cita cuando el usuario tiene el id de la cita")
     @Transactional
     public String cancelCitaById(String idCita)
@@ -53,6 +55,7 @@ public class ToolRepository
         }
     }
 
+    //Consulta citas por tipo/especialización a la que acuda
     @Tool("Consultar citas por tipo de consulta/medico")
     @Transactional
     public List<Cita> getCitasByType(String tipo)
@@ -63,6 +66,7 @@ public class ToolRepository
     }
 
 
+    //Saca una cita
     @Tool("Pedir o sacar una cita")
     @Transactional
     public String postCitas(String lugar, String tipo, String motivo, String fecha, String hora)
@@ -94,7 +98,15 @@ public class ToolRepository
                 type = Tipo.ENFERMERIA;
             }
 
+            case "enfermería" -> {
+                type = Tipo.ENFERMERIA;
+            }
+
             case "analisis" -> {
+                type = Tipo.ANALISIS;
+            }
+
+            case "análisis" -> {
                 type = Tipo.ANALISIS;
             }
 
@@ -134,6 +146,7 @@ public class ToolRepository
 
     }
 
+    //Proporciona una lista con todas las citas del usuario
     @Tool("Ver mis citas")
     @Transactional
     public List<Cita> getCitas()
@@ -141,6 +154,7 @@ public class ToolRepository
         return  citas.getCitas(context.getUserId());
     }
 
+    //Proporciona una lista con los medicamentos y dosis de un usuario
     @Tool("Ver mis medicamentos")
     @Transactional
     public List<PosologiaWMedicina> listaPosologias()
