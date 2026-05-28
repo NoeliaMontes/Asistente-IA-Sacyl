@@ -6,7 +6,7 @@
         <entry key="aggregator">
           <value>
             <ModuleState>
-              <option name="hash" value="-1029321656" />
+              <option name="hash" value="-693375608" />
               <option name="version" value="1" />
             </ModuleState>
           </value>
@@ -14,7 +14,7 @@
         <entry key="backend">
           <value>
             <ModuleState>
-              <option name="hash" value="1968529531" />
+              <option name="hash" value="33364471" />
               <option name="version" value="1" />
             </ModuleState>
           </value>
@@ -46,7 +46,7 @@
         <entry key="security">
           <value>
             <ModuleState>
-              <option name="hash" value="1228859253" />
+              <option name="hash" value="-1097900995" />
               <option name="version" value="1" />
             </ModuleState>
           </value>
@@ -54,7 +54,7 @@
         <entry key="ws-citas">
           <value>
             <ModuleState>
-              <option name="hash" value="1350747654" />
+              <option name="hash" value="-1915770554" />
               <option name="version" value="1" />
             </ModuleState>
           </value>
@@ -62,7 +62,7 @@
         <entry key="ws-medicamentos">
           <value>
             <ModuleState>
-              <option name="hash" value="1350747654" />
+              <option name="hash" value="-1915770554" />
               <option name="version" value="1" />
             </ModuleState>
           </value>
@@ -70,7 +70,7 @@
         <entry key="ws-medicos">
           <value>
             <ModuleState>
-              <option name="hash" value="-1306600835" />
+              <option name="hash" value="-1915770554" />
               <option name="version" value="1" />
             </ModuleState>
           </value>
@@ -78,7 +78,7 @@
         <entry key="ws-pacientes">
           <value>
             <ModuleState>
-              <option name="hash" value="1350747654" />
+              <option name="hash" value="-1915770554" />
               <option name="version" value="1" />
             </ModuleState>
           </value>
@@ -86,7 +86,7 @@
         <entry key="ws-posologias">
           <value>
             <ModuleState>
-              <option name="hash" value="1350747654" />
+              <option name="hash" value="-1915770554" />
               <option name="version" value="1" />
             </ModuleState>
           </value>

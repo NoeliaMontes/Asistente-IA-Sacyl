@@ -78,6 +78,10 @@
             <artifactId>domain</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
