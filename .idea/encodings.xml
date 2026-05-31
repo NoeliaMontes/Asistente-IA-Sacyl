@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/asistentesacyl/aggregator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/aggregator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/backend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/backend/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/domain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/frontend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/frontend/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/security/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-citas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-citas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-medicamentos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-medicamentos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-medicos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-medicos/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-pacientes/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-pacientes/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-posologias/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asistentesacyl/ws-posologias/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

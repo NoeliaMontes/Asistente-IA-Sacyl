@@ -121,6 +121,7 @@ services:
       DATABASE_NAME: upsa
       DATABASE_USERNAME: system
       DATABASE_PASSWORD: manager
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
     volumes:
       - ./backend/docs:/deployments/docs
     depends_on:

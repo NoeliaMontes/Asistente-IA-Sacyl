@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ws-medicos" />
+        <module name="security" />
+        <module name="ws-medicamentos" />
+        <module name="ws-pacientes" />
+        <module name="aggregator" />
+        <module name="domain" />
+        <module name="ws-citas" />
+        <module name="backend" />
+        <module name="ws-posologias" />
+        <module name="frontend" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aggregator" options="-parameters" />
+      <module name="backend" options="-parameters" />
+      <module name="frontend" options="-parameters" />
+      <module name="security" options="-parameters" />
+      <module name="ws-citas" options="-parameters" />
+      <module name="ws-medicamentos" options="-parameters" />
+      <module name="ws-medicos" options="-parameters" />
+      <module name="ws-pacientes" options="-parameters" />
+      <module name="ws-posologias" options="-parameters" />
+    </option>
+  </component>
+</project>
