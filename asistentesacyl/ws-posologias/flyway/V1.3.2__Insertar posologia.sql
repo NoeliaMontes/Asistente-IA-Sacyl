@@ -1,0 +1,22 @@
+INSERT INTO POSOLOGIAS (ID, MEDICO_ID, PACIENTE_ID, MEDICINA_ID, DOSIS, FRECUENCIA, UNIDAD)
+VALUES
+    (nextval('seq_posologia'), 100000001, 'CYL0000000001', '1', 500, 3, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000002, 'CYL0000000002', '2', 400, 2, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000003, 'CYL0000000003', '3', 650, 3, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000004, 'CYL0000000004', '4', 250, 3, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000005, 'CYL0000000005', '5', 20, 1, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000006, 'CYL0000000006', '6', 850, 2, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000007, 'CYL0000000007', '7', 10, 1, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000008, 'CYL0000000008', '8', 5, 2, 'MILILITROS'),
+    (nextval('seq_posologia'), 100000009, 'CYL0000000009', '9', 50, 1, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000010, 'CYL0000000010', '10', 20, 2, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000011, 'CYL0000000011', '11', 10, 1, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000012, 'CYL0000000012', '12', 10, 1, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000013, 'CYL0000000013', '13', 1, 1, 'MILILITROS'),
+    (nextval('seq_posologia'), 100000014, 'CYL0000000014', '14', 500, 1, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000015, 'CYL0000000015', '15', 500, 1, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000016, 'CYL0000000016', '16', 50, 2, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000017, 'CYL0000000017', '17', 500, 2, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000018, 'CYL0000000018', '18', 20, 1, 'MILIGRAMOS'),
+    (nextval('seq_posologia'), 100000019, 'CYL0000000019', '19', 10, 1, 'MILILITROS'),
+    (nextval('seq_posologia'), 100000020, 'CYL0000000020', '20', 15, 3, 'GOTAS');

@@ -1,0 +1,8 @@
+package es.upsa.tfg.domain.enums;
+
+public enum Tipo {
+
+    MATRONA, MEDICINA, ENFERMERIA,TRABAJADOR_SOCIAL,VACUNAS_ADULTOS,VACUNAS_PEDIATRIA,ANALISIS
+
+
+    }

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="QuarkusDeploymentProjectService">
+    <option name="modules">
+      <map>
+        <entry key="aggregator">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-693375608" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="backend">
+          <value>
+            <ModuleState>
+              <option name="hash" value="33364471" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="backend (2)">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-781899367" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="frontend">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-468325997" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="pacientes">
+          <value>
+            <ModuleState>
+              <option name="hash" value="1350747654" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="security">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-1097900995" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-citas">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-1915770554" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-medicamentos">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-1915770554" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-medicos">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-1915770554" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-pacientes">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-1915770554" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+        <entry key="ws-posologias">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-1915770554" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

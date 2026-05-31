@@ -1,0 +1,22 @@
+INSERT INTO PACIENTES (CIPAUT, NOMBRE, APELLIDO1, APELLIDO2)
+VALUES
+    ('CYL0000000001', 'Juan', 'Pérez', 'García'),
+    ('CYL0000000002', 'María', 'López', 'Fernández'),
+    ('CYL0000000003', 'Carlos', 'Gómez', 'Martínez'),
+    ('CYL0000000004', 'Ana', 'Sánchez', 'Rodríguez'),
+    ('CYL0000000005', 'Luis', 'Díaz', 'Hernández'),
+    ('CYL0000000006', 'Laura', 'Ruiz', 'Jiménez'),
+    ('CYL0000000007', 'Miguel', 'Moreno', 'Álvarez'),
+    ('CYL0000000008', 'Carmen', 'Muñoz', 'Romero'),
+    ('CYL0000000009', 'Javier', 'Alonso', 'Navarro'),
+    ('CYL0000000010', 'Isabel', 'Torres', 'Domínguez'),
+    ('CYL0000000011', 'Antonio', 'Vázquez', 'Ramos'),
+    ('CYL0000000012', 'Patricia', 'Gil', 'Ortega'),
+    ('CYL0000000013', 'Francisco', 'Serrano', 'Molina'),
+    ('CYL0000000014', 'Silvia', 'Blanco', 'Castro'),
+    ('CYL0000000015', 'Daniel', 'Suárez', 'Iglesias'),
+    ('CYL0000000016', 'Beatriz', 'Marín', 'Cortés'),
+    ('CYL0000000017', 'Alberto', 'Rubio', 'Delgado'),
+    ('CYL0000000018', 'Raquel', 'Santos', 'Prieto'),
+    ('CYL0000000019', 'Sergio', 'Guerrero', 'Cabrera'),
+    ('CYL0000000020', 'Elena', 'Peña', 'Flores');

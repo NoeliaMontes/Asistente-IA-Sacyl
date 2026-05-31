@@ -1,0 +1,22 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.form_class {
+    border-radius: 0.5rem;
+    border: 0.2rem solid gray;
+    padding: 2rem;
+    width: 30rem;
+}
+
+.form-group{
+    margin: 0.5rem;
+}
+
+h1{
+    color: black;
+}

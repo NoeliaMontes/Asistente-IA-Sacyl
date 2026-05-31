@@ -1,0 +1,31 @@
+package es.upsa.tfg.posologias.adapters.input.rest;
+
+import es.upsa.tfg.domain.entities.Posologia;
+import es.upsa.tfg.domain.exceptions.PosologiaNotFoundException;
+import es.upsa.tfg.posologias.application.usecases.GetPosologiaByPacienteIdUseCase;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
+import java.util.List;
+import java.util.Optional;
+
+@Path("/posologias")
+public class PosologiasResource {
+
+    @Inject
+    GetPosologiaByPacienteIdUseCase getPosologiaByPacienteId;
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public Response getPosologiaByPacienteId(@PathParam("id") String id)
+    {
+        List<Posologia> posologias = getPosologiaByPacienteId.execute(id);
+        return Response.ok().entity(posologias).build();
+    }
+}
