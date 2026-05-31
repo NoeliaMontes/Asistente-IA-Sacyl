@@ -1,7 +1,11 @@
 # Desarrollo de un asistente inteligente mediante la integración de LangChain4j y Quarkus: caso de estudio en la aplicación SaCyL.
 
+Este proyecto ha sido desarrollado como Trabajo de Fin de Grado.
+
 El proyecto consiste en el diseño, desarrollo e implementación de un agente conversacional inteligente basado en modelos de lenguaje de gran tamaño (LLMs). Para su creación se ha utilizado Quarkus como framework principal para el desarrollo de la mayoría de los módulos. Junto con este, LangChain4j ha sido integrado como framework principal del backend, permitiendo así la integración eficiente de distintos componentes específicos de agentes de inteligencia artificial como, por ejemplo, la invocación de herramientas o la obtención de información dependiendo del contexto. El proyecto profundiza tanto en los propios agentes de inteligencia artificial y sus características como en nuestro proyecto específico y las características particulares de nuestro proyecto.
 
 Como caso práctico de la aplicación, se llevó a cabo una imitación funcional de la aplicación de Sanidad de Castilla y León (SaCyL). La elección de esta implementación específica se fundamenta en su importancia dentro del sector sanitario en esta provincia. Considero que el agente IA facilitaría el acceso a la información sanitaria y agilizaría procesos que normalmente requieren una navegación compleja dentro de la propia aplicación.
 
 Este proyecto demuestra el potencial de los agentes de inteligencia artificial como herramienta para mejorar la accesibilidad, eficiencia y calidad de servicios digitales; especialmente aquellos que van dirigidos a un público extenso y de gran impacto social.
+
+Durante su diseño se han consultado diversos proyectos open source como referencia arquitectónica, los cuales se encuentran citados en la correspondiente memoria del TFG.
