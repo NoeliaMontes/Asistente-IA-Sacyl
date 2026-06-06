@@ -122,6 +122,11 @@ services:
       DATABASE_USERNAME: system
       DATABASE_PASSWORD: manager
       OPENAI_API_KEY: ${OPENAI_API_KEY}
+      MODEL_TEMPERATURE: 0.5
+      MODEL_FREQUENCY: 0
+      MODEL_RESULTS: 3
+      MODEL_SCORE: 0.6
+      MODEL_MEMORY: 5
     volumes:
       - ./backend/docs:/deployments/docs
     depends_on:
