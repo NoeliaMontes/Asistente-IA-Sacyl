@@ -11,6 +11,14 @@
             </ModuleState>
           </value>
         </entry>
+        <entry key="security">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-1097900995" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
